@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Course Enrollment</title>
+</head>
+<body>
+
+<header>
+    <h1>Online Learning Platform</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a> |
+    <a href="#">Courses</a> |
+    <a href="#">Enroll</a>
+</nav>
+
+<hr>
+
+<h2>Course Enrollment Form</h2>
+
+<form action="submit.html" method="post">
+
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" autofocus required><br><br>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="course">Choose Course:</label>
+    <input list="courses" id="course" name="course" placeholder="Start typing..." required>
+
+    <datalist id="courses">
+        <option value="HTML">
+        <option value="CSS">
+        <option value="JavaScript">
+        <option value="Python">
+        <option value="Java Programming">
+        <option value="Data Science">
+    </datalist>
+    <br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="16" max="60" required><br><br>
+
+    <label for="skill">Skill Level (Beginner – Advanced):</label>
+    <meter id="skill" min="0" max="100" value="40"></meter>
+    <p>0-30 Beginner | 31-70 Intermediate | 71-100 Advanced</p>
+
+    <br>
+
+    <label for="interest">Interest Level:</label>
+    <input type="range" id="interest" name="interest" min="0" max="10"><br><br>
+
+    <label>Enrollment Completion:</label>
+    <progress value="70" max="100"></progress>
+    <p>70% Completed</p>
+
+    <br>
+
+    <input type="submit" value="Enroll Now">
+
+</form>
+
+</body>
+</html>
