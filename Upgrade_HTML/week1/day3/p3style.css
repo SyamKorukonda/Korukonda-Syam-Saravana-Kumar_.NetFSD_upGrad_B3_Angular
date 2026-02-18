@@ -1,0 +1,41 @@
+/* Element Selector */
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5FBE6;
+}
+
+/* Class Selector */
+.features{
+    width: 420px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+/* Descendant Selector */
+.features h2{
+    color: #FE7F2D;
+    margin-bottom: 20px;
+}
+
+/* Remove bullets */
+.features ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Feature items  */
+.features ul li{
+    background-color: #e0e7ff;
+    color: #111;
+    border: 2px solid #4A70A9;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+
+/*  for Hover  */
+.features ul li:hover{
+    background-color: #F9B487;
+    color: #4C763B;
+    cursor: pointer;
+}

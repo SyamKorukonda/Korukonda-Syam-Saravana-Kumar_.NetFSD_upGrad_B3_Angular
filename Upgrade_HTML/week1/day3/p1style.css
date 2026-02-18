@@ -1,0 +1,63 @@
+body{
+    background-color: #A5C89E;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    text-align: center;
+    color: #30364F;
+    margin-top: 20px;
+}
+form{
+    width: 350px;
+    margin: 30px auto;
+}
+fieldset{
+    background-color:#ACBAC4;
+    border: 2px solid #008BFF;
+    padding: 20px;
+    border-radius: 10px;
+}
+legend{
+    font-weight: bold;
+    color: #4a6cf7;
+    padding: 5px 10px;
+}
+label{
+    font-weight: bold;
+    color: #333;
+}
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"]{
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* When user clicks inside input */
+input:focus{
+    border: 2px solid #4a6cf7;
+    background-color: #eef2ff;
+}
+
+/* Submit button */
+input[type="submit"]{
+    width: 100%;
+    padding: 10px;
+    background-color: #4a6cf7;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover effect */
+input[type="submit"]:hover{
+    background-color: green;
+}
