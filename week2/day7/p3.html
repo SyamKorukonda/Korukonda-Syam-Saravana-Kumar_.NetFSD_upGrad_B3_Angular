@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+</head>
+<body>
+    <center>
+        <header>
+            <h2> Employee Details</h2>
+        </header>
+        <label>Select Job :</label>
+        <select id="jobselect">
+            <option value="All">All Employees</option>
+            <option value="Manager">Manager</option>
+            <option value="Salesman">Salesman</option>
+            <option value="Clerk">Clerk</option>
+        </select>
+        <button onclick="showEmployees()">Show Employees</button>
+        <br><br>
+        <table border="1" id="emptable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Job</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody> 
+            </tbody>
+
+        </table>
+    </center>
+    <script src="p3.js"></script>
+    
+</body>
+</html>
