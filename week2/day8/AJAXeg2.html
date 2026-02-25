@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax example</title>
+</head>
+<body>
+    <header>
+        <h2>Ajax Programming in JavaScript</h>
+    </header>
+    <button onclick="getdata()">Get Data</button>
+    
+    <div id="list1" style="border: 3px solid gray ; padding: 30px;"></div>
+
+    <script>
+        var lstobj=document.getElementById("list1");
+
+        function getdata(){
+
+            let url="https://jsonplaceholder.typicode.com/posts";
+
+            fetch(url).then((response) => {
+                response.json().then((jsonResponse) => {
+                    let userarray=jsonResponse;
+                    displaydata(userarray);
+                });
+            });
+        }
+
+        function displaydata(array){
+
+            let str="";
+            for(let item of array ){
+                str+= ` 
+                        <div style ="border:1px solid gray; padding:10px; margin-bottom:10px;">
+                            <h4>User Id : ${item.userId}</h4> 
+                            <p><b>Title :</b>${item.title}</p>
+                            <p><b>Body :</b>${item.body}</p>
+                        </div>
+                `;
+            }
+          lstobj.innerHTML=str;
+        }
+
+    </script>
+</body>
+</html>

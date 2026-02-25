@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Theme Switch</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            transition: 0.3s;
+        }
+
+        /* Light Mode */
+        .light{
+            background-color: white;
+            color: black;
+        }
+
+        /* Dark Mode */
+        .dark{
+            background-color: #121212;
+            color: white;
+        }
+
+        button{
+            padding:8px 14px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body class="light">
+
+<h2>My Simple Blog</h2>
+
+<button id="toggleBtn">Switch Theme</button>
+
+<p>
+This is a sample blog page.
+When you refresh the page, it will remember your theme.
+</p>
+
+<script src="p3.js"></script>
+
+</body>
+</html>
