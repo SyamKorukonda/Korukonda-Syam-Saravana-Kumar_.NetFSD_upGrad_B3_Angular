@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Encapsulation</title>
+</head>
+<body>
+
+<h2>Student Details</h2>
+<button onclick="showStudent()">Show Students</button>
+
+<div id="output"></div>
+
+<script>
+class Student{
+  constructor(name, rollNumber, marks){
+    this.name=name;
+    this.rollNumber=rollNumber;
+    this.marks=marks;
+  }
+
+  getGrade(){
+    if(this.marks>=90) return "A";
+    else if(this.marks>=75) return "B";
+    else if(this.marks>=50) return "C";
+    else return "Fail";
+  }
+}
+
+function showStudent(){
+  let s1=new Student("Syam",101,92);
+  let s2=new Student("Ravi",102,68);
+
+  document.getElementById("output").innerHTML=
+  "Name: "+s1.name+" | Grade: "+s1.getGrade()+"<br>"+
+  "Name: "+s2.name+" | Grade: "+s2.getGrade();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment Polymorphism</title>
+</head>
+<body>
+
+<h2>Payment System</h2>
+<button onclick="showPayment()">Pay</button>
+
+<div id="output"></div>
+
+<script>
+class Payment{
+  pay(amount){
+    return "Processing Payment";
+  }
+}
+
+class CreditCardPayment extends Payment{
+  pay(amount){
+    return "Paid ₹"+amount+" using Credit Card";
+  }
+}
+
+class UPIPayment extends Payment{
+  pay(amount){
+    return "Paid ₹"+amount+" using UPI";
+  }
+}
+
+class CashPayment extends Payment{
+  pay(amount){
+    return "Paid ₹"+amount+" using Cash";
+  }
+}
+
+function showPayment(){
+  let p1=new CreditCardPayment();
+  let p2=new UPIPayment();
+  let p3=new CashPayment();
+
+  document.getElementById("output").innerHTML=
+  p1.pay(500)+"<br>"+p2.pay(700)+"<br>"+p3.pay(300);
+}
+</script>
+
+</body>
+</html>
