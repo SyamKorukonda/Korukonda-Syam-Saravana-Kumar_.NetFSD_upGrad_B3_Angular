@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Electro Shop</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar bg-dark navbar-dark">
+  <div class="container">
+    <a class="navbar-brand">ElectroShop</a>
+
+    <!-- offcanvas button -->
+    <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#menu">
+      Menu
+    </button>
+  </div>
+</nav>
+
+<!-- OFFCANVAS MENU -->
+<div class="offcanvas offcanvas-start" id="menu">
+  <div class="offcanvas-header">
+    <h5>Categories</h5>
+    <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <p>Mobiles</p>
+    <p>Laptops</p>
+    <p>Accessories</p>
+  </div>
+</div>
+
+<!-- HERO SECTION -->
+<div class="container text-center mt-5">
+  <h1>Welcome to ElectroShop</h1>
+  <p>Buy electronics at best price</p>
+  <button class="btn btn-success">Shop Now</button>
+</div>
+
+<!-- CAROUSEL -->
+<div class="container mt-5">
+  <div id="slider" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+
+      <div class="carousel-item active text-center">
+        <img src="Images/phone.jpg" class="d-block mx-auto">
+        <h5>Mobile</h5>
+      </div>
+
+      <div class="carousel-item text-center">
+        <img src="Images/Laptop.jpg" class="d-block mx-auto">
+        <h5>Laptop</h5>
+      </div>
+
+    </div>
+
+    <button class="carousel-control-prev" data-bs-target="#slider" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" data-bs-target="#slider" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+</div>
+
+<!-- NEWSLETTER FORM -->
+<div class="container text-center mt-5 mb-5">
+  <h3>Subscribe</h3>
+  <input type="email" class="form-control w-50 mx-auto mb-3" placeholder="Enter email">
+  <button class="btn btn-primary">Subscribe</button>
+</div>
+
+<!-- Bootstrap JS (VERY IMPORTANT) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>College Events Dashboard</title>
+
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand">College Events</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="menu" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link">Home</a></li>
+        <li class="nav-item"><a class="nav-link">Events</a></li>
+        <li class="nav-item"><a class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Dashboard -->
+<div class="container mt-4">
+  <div class="row g-4">
+
+    <!-- Event List -->
+    <div class="col-12 col-lg-8">
+      <div class="card p-3">
+        <h4>Upcoming Events</h4>
+        <ul class="list-group">
+          <li class="list-group-item">Hackathon - March 5</li>
+          <li class="list-group-item">Tech Seminar - March 12</li>
+          <li class="list-group-item">Workshop - March 20</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Add Event Button -->
+    <div class="col-12 col-lg-4">
+      <div class="card p-3 text-center">
+        <h5>Add New Event</h5>
+        <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#eventModal">
+          Add Event
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal (Add Event Form) -->
+<div class="modal fade" id="eventModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Event Registration</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>
+
+          <input class="form-control mb-3" type="text" placeholder="Event Name" required>
+
+          <input class="form-control mb-3" type="date" required>
+
+          <textarea class="form-control mb-3" placeholder="Event Description" required></textarea>
+
+          <button class="btn btn-success w-100">Submit</button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS Bundle (important for modal) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
