@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FAQ Section</title>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+body{
+    font-family: Arial;
+    background:#EE6983;
+}
+
+.container{
+    width:600px;
+    margin:40px auto;
+    background:#87BAC3;
+    padding:20px;
+    border-radius:8px;
+}
+
+.question{
+    background:white;
+    padding:12px;
+    margin-top:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* highlighted question */
+.active{
+    background:#A5C89E;
+    color:#161E54;
+}
+
+.answer{
+    display:none;          /* hidden initially */
+    padding:10px;
+    background:#E6E6E6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+    <div class="question">1. What is jQuery?</div>
+    <div class="answer">jQuery is a JavaScript library that simplifies DOM manipulation and events.</div>
+
+    <div class="question">2. Is jQuery easy to learn?</div>
+    <div class="answer">Yes, it uses simple syntax: $(selector).action().</div>
+
+    <div class="question">3. What is CDN?</div>
+    <div class="answer">CDN is an online link used to include libraries without downloading them.</div>
+
+    <div class="question">4. What is slideToggle()?</div>
+    <div class="answer">slideToggle() shows or hides an element with sliding animation.</div>
+
+    <div class="question">5. Do modern frameworks still use jQuery?</div>
+    <div class="answer">Modern frameworks like React reduce the need for jQuery, but it is still used in simple websites.</div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function(){  /* Runs the jQuery code only after the webpage loads completely.*/
+
+    $(".question").click(function(){
+
+        // highlight clicked question
+        $(this).toggleClass("active"); //used to add or remove a CSS class automatically
+
+        // open/close answer  // next->    moves to the next element beside button
+        $(this).next(".answer").slideToggle();  //is a jQuery effect method that shows and hides an element with a sliding animation (up & down).   
+        //$(this).next(".answer").show();
+        //$(this).next(".answer").hide();
+        //$(this).next(".answer").toggle();
+
+    });
+
+});
+</script>
+
+</body>
+</html>

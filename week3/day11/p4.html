@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple ToDo</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+.done{
+    text-decoration: line-through;
+    color: gray;
+}
+</style>
+
+</head>
+<body>
+
+<h2>To Do List</h2>
+
+<input type="text" id="task">
+<button id="add">Add</button>
+
+<p>Total: <span id="total">0</span> | Completed: <span id="completed">0</span></p>
+
+<ul id="list"></ul>
+
+<script>
+$(document).ready(function(){
+
+    let total = 0;
+    let comp = 0;
+
+    // ADD TASK
+    $("#add").click(function(){
+
+        let t = $("#task").val();
+
+        if(t=="") return;
+
+        $("#list").append(
+            "<li>"+t+
+            " <button class='doneBtn'>Done</button>"+
+            " <button class='delBtn'>Delete</button></li>"
+        );
+
+        total++;
+        $("#total").text(total);
+
+        $("#task").val("");
+    });
+
+
+    // MARK COMPLETE
+    $("#list").on("click",".doneBtn",function(){
+
+        $(this).parent().toggleClass("done");
+
+        if($(this).parent().hasClass("done"))
+            comp++;
+        else
+            comp--;
+
+        $("#completed").text(comp);
+    });
+
+
+    // DELETE TASK
+    $("#list").on("click",".delBtn",function(){
+
+        if($(this).parent().hasClass("done"))
+            comp--;
+
+        total--;
+
+        $(this).parent().remove();
+
+        $("#total").text(total);
+        $("#completed").text(comp);
+    });
+
+});
+</script>
+
+</body>
+</html>
