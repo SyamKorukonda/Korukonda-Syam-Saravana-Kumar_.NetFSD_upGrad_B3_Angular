@@ -1,0 +1,41 @@
+﻿@using WebApplication1.Models;
+@model List<Employee>
+
+<h1 class=" display-5">Employee Controller-Index</h1>
+@*
+<div>
+    Employee Id : @Model.Empno  <br />
+    Employee Name : @Model.Ename  <br />
+    Employee Job : @Model.Job  <br />
+    Employee Salary : @Model.Salary  <br />
+    Employee Deptno : @Model.Deptno   <br />
+</div>
+*@
+
+<table border="1" cellpadding="10" class="table table-dark">
+    
+    <thead>
+
+        <tr>
+            <th>EmpNo</th>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Salary</th>
+            <th>Dept No</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach(var emp in Model)
+        {
+            <tr>
+                <td>@emp.Empno</td>
+                <td>@emp.Ename</td>
+                <td>@emp.Job</td>
+                <td>@emp.Salary</td>
+                <td>@emp.Deptno</td>
+            </tr>
+        }
+    </tbody>
+</table>

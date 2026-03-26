@@ -1,0 +1,30 @@
+﻿@using WebApplication3.Controllers;
+@model List<Products>
+
+<h1 class=" display-5"> Products Controller - Index</h1>
+<br />
+
+<table border="1" cellpadding="10" cellspacing="0" class="table table-dark">
+	<thead>
+		<tr>
+			<th>ProdId</th>
+			<th>ProdName</th>
+			<th>ProdPrice</th>
+			<th>ProdCategory</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (Products item in Model)
+		{
+			<tr>
+				<td>@item.Pid</td>
+				<td>@item.Pname</td>
+				<td>@item.Pprice</td>
+				<td>@item.Pcategory</td>
+			</tr>
+		}
+
+	</tbody>
+
+</table>
+

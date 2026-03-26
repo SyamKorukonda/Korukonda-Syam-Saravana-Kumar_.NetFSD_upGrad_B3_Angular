@@ -1,0 +1,10 @@
+1.What is ASP.NET Core, and how is it different from ASP.NET Framework?
+2.What are the key features of ASP.NET Core?
+3.Explain the concept of cross-platform support in ASP.NET Core.
+4.What is the difference between Kestrel and IIS in ASP.NET Core?
+5.What is the purpose of the Program.cs file in an ASP.NET Core project?
+6.What is the MVC pattern, and why is it used?
+7.Explain the role of Model, View, and Controller in ASP.NET Core MVC.
+8.What is the Razor View Engine, and how does it work?
+9.What is an Action Method?
+10.What are the different types of Action Results in ASP.NET Core MVC?
