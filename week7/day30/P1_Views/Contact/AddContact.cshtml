@@ -1,0 +1,41 @@
+﻿@model ContactInfo
+@using WebApplication5.Controllers
+
+<form asp-action="AddContact" method="post">
+
+    <input asp-for="ContactId" placeholder="Id" />
+    <span asp-validation-for="ContactId"></span>
+    <br /><br />
+
+    <input asp-for="FirstName" placeholder="First Name" />
+    <span asp-validation-for="FirstName"></span>
+    <br /><br />
+
+    <input asp-for="LastName" placeholder="Last Name" />
+    <span asp-validation-for="LastName"></span>
+    <br /><br />
+
+    <input asp-for="CompanyName" placeholder="Company" />
+    <br /><br />
+
+    <input asp-for="EmailId" placeholder="Email" />
+    <span asp-validation-for="EmailId"></span>
+    <br /><br />
+
+    <input asp-for="MobileNo" placeholder="Mobile" />
+    <span asp-validation-for="MobileNo"></span>
+    <br /><br />
+
+    <input asp-for="Designation" placeholder="Designation" />
+    <br /><br />
+
+    <button type="submit">Save</button>
+</form>
+<br />
+<br />
+
+<!-- Important for client-side validation -->
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

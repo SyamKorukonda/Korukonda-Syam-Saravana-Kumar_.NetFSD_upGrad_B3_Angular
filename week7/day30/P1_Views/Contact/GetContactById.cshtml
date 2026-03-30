@@ -1,0 +1,22 @@
+﻿@model ContactInfo
+@using WebApplication5.Controllers
+
+<h2>Contact Details</h2>
+
+
+
+@if (Model != null)
+{
+    <p>Id: @Model.ContactId</p>
+    <p>Name: @Model.FirstName @Model.LastName</p>
+    <p>Company: @Model.CompanyName</p>
+    <p>Email: @Model.EmailId</p>
+    <p>Mobile: @Model.MobileNo</p>
+    <p>Designation: @Model.Designation</p>
+}
+else
+{
+    <p>Contact not found</p>
+}
+
+<a asp-action="ShowContacts" class="btn btn-secondary">Back to List</a> 
