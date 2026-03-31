@@ -1,0 +1,28 @@
+﻿<h2>Simple Calculations</h2>
+<form method="post" asp-action="Add" asp-controller="Calc">
+
+	<div class="form-group">
+	<label>Number :1</label>
+	<input type="number" name="num1" class="form-control" required/>
+	</div>
+	<div class="form-group">
+		<label>Number :2</label>
+		<input type="number" name="num2" class="form-control" required />
+	</div>
+	<br />
+	<button type="submit">Add</button>
+
+</form>
+
+@if (ViewData["Result"] != null)
+{
+	<h3>Result: @ViewData["Num1"] + @ViewData["Num2"] = @ViewData["Result"]</h3>
+}
+else
+{
+	<p>No result yet. Please enter numbers.</p>
+}
+<a asp-action="Index" asp-controller="Student" class="btn btn-secondary">
+	Back to Home
+</a>
+

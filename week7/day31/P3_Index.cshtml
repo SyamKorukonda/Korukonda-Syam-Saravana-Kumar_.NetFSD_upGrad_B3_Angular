@@ -1,0 +1,53 @@
+﻿<h2>Add Product</h2>
+
+
+
+<form method="post" asp-action="Add" asp-controller="Product">
+
+    <div class="form-group">
+        <label>Product Name</label>
+        <input type="text" name="name"  class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input type="number" name="price" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Quantity</label>
+        <input type="text" name="quantity" class="form-control" required />
+    </div>
+    <br />
+
+
+    <button type="submit">Submit</button>
+</form>
+
+<hr />
+
+<h3>Product List</h3>
+
+<table border="1" class="table">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+
+    @if (ViewBag.Products != null)
+    {
+        var items = ViewBag.Products.ToString().Split('|');
+
+        foreach (var item in items)
+        {
+            var p = item.Split(',');
+
+            <tr>
+                <td>@p[0]</td>
+                <td>@p[1]</td>
+                <td>@p[2]</td>
+            </tr>
+        }
+    }
+</table>

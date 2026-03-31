@@ -1,0 +1,36 @@
+
+Entity Frame Work Core (EF Core):
+
+------------------------------------------------------------------
+
+
+Model
+			--   Model Class and Properties 
+			--   Applied Validations  using Data Annotations 
+		
+-------------------------------------------------------------------	
+	Controller
+			--   Action Methods,  ActionResults 
+			--   View(),   RedirectToAction(), ....
+			--   HttpGet / HttpPost
+			--   State Management 
+						ViewData, ViewBag
+						TempData
+						Strongly Typed View 
+			--   Model Binding
+			--   Routing    [Route]
+			--   LINQ Programming to filter data 
+			
+--------------------------------------------------------------------
+	View 
+			---	Razor Programming  --    @ 
+			---    Tag Helpers 
+			--      _Layout view 
+			--      Partial View 
+			--      @model   declaration 	for strongly typed view 
+			--      Validations :		asp-validation-for 
+			--		Data Entry Forms
+							asp-action 
+							asp-controller 
+							asp-for 
+			--     Hyperlinks  :			asp-route-id
