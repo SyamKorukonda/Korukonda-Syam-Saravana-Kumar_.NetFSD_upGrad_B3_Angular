@@ -1,0 +1,85 @@
+
+Day32 
+~~~~~~ 
+
+
+Pre-Req  Questions
+~~~~~~~~~~~~~~~~
+What is dependency injection?  Advantages?
+How to implement DI in ASP.NET Core? 
+What is Service-Repository Pattern? 
+
+
+
+
+
+Request :			/Product/Index
+
+a.   Create instance for the ProductController Class 
+		--  Constructor ()   		------		DI Class ---   ProductService  Instance 
+		--  Get  the ProductService  instance from IoC Container 
+					a.   Check the ProductService is register or not 
+					b.   If register, then check for the instance is already there. 
+					c.   If not, it create and return to controller 
+					d.   If Yes, it return to controller 
+		--  Injected into  ProductController  Instance   
+
+
+	
+
+
+If service register is not done, will get the following error:
+
+InvalidOperationException: Unable to resolve service for type 'WebApplication20.Services.IProductService' while attempting to activate 'WebApplication20.Controllers.ProductsController'.
+
+
+------------------------------------------------
+
+
+Fat Controller (Without Service-Repository Pattern)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A fat controller in ASP.NET Core is an anti-pattern where a controller class becomes overly complex and handles too many responsibilities beyond managing HTTP requests.
+
+This typically includes incorporating business logic, data access operations, and complex validation directly within the controller's action methods.
+
+
+
+
+
+
+
+
+
+--> Dependency Injection   in ASP.NET Core
+-->  Services and Repositories Pattern  
+
+
+Repositories and Services Pattern in ASP.NET Core
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+1.  [ Models ]
+			a.  Entity Classes (Refers the Tables)
+			b.  AppDbContext Class
+			
+2.  [ Repositories ]
+				IProductRepository.cs	
+				ProductRepository.cs	
+				
+3.    [ Services ]
+			IProductService.cs
+			ProductService.cs
+			
+4.    Controllers
+			ProductController.cs
+			
+ 
+					
+			
+
+
+
+-------------------------------------
+
+ 

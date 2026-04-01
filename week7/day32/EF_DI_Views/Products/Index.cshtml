@@ -1,0 +1,39 @@
+﻿
+@model IEnumerable<Product>
+@using WebApplication6.Models
+
+<h1 class="display-5">EF Core Demo Application</h1>
+<hr />
+
+<a class="btn btn-primary" asp-action="Create">Create New</a>
+<hr />
+
+<table border="1" cellpadding="10" cellspacing="0" class="table">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Product item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Price </td>
+                <td>@item.Category</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

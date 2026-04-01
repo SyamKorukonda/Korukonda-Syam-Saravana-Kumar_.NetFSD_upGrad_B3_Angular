@@ -1,0 +1,40 @@
+﻿@model List<Movie>
+
+<h1 class="display-5">EF Core Demo Movie Application</h1>
+<hr />
+
+<a class="btn btn-primary" asp-action="Create">Create New</a>
+
+<hr />
+<table border="1" cellpadding="10" cellspacing="0" class="table">
+
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Genre</th>
+			<th>Release Date</th>
+			<th>Price</th>
+			<th>Rating</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var m in Model)
+		{
+			<tr>
+				<td>@m.Title</td>
+				<td>@m.Genre</td>
+				<td>@m.ReleaseDate.ToShortDateString()</td>
+				<td>@m.Price</td>
+				<td>@m.Rating</td>
+				<td>
+					<a asp-action="Details" asp-route-id="@m.Id">Details</a>
+					<a asp-action="Update" asp-route-id="@m.Id">Edit</a>
+					<a asp-action="Delete" asp-route-id="@m.Id">Delete</a>
+				</td>
+
+			</tr>
+		}
+
+	</tbody>
+</table>

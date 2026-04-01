@@ -1,0 +1,4 @@
+Tools → NuGet Package Manager → Package Manager Console
+
+step 1:Add-Migration AddMovieTable
+Step 2:Update-Database

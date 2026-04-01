@@ -1,0 +1,62 @@
+﻿@model List<ContactInfo>
+@using WebApplication6.Models
+
+@{
+    ViewData["Title"] = "Contact List";
+}
+
+<h2>Contact List</h2>
+
+<p>
+    <a asp-action="AddContact" class="btn btn-primary">Create New Contact</a>
+</p>
+
+<table border="1" cellpadding="10" cellspacing="0" class="table">
+    <thead>
+        <tr>
+            <th>S.No</th> <!-- better than ID -->
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Mobile No</th>
+            <th>Designation</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{
+            int count = 1;
+        }
+
+        @if (Model != null && Model.Any())
+        {
+            foreach (var contact in Model)
+            {
+                <tr>
+                    <td>@count</td> <!-- serial number -->
+                    <td>@contact.FirstName</td>
+                    <td>@contact.LastName</td>
+                    <td>@contact.CompanyName</td>
+                    <td>@contact.EmailId</td>
+                    <td>@contact.MobileNo</td>
+                    <td>@contact.Designation</td>
+                    <td>
+                        <a asp-action="GetContact" asp-route-id="@contact.ContactId">Details</a>
+                    </td>
+                </tr>
+
+                count++;
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="8" class="text-center text-danger">
+                    No contacts found.
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

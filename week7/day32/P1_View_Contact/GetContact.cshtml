@@ -1,0 +1,26 @@
+﻿@model ContactInfo
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+@if (Model != null)
+{
+    <p><b>ID:</b> @Model.ContactId</p>
+    <p><b>First Name:</b> @Model.FirstName</p>
+    <p><b>Last Name:</b> @Model.LastName</p>
+    <p><b>Company:</b> @Model.CompanyName</p>
+    <p><b>Email:</b> @Model.EmailId</p>
+    <p><b>Mobile:</b> @Model.MobileNo</p>
+    <p><b>Designation:</b> @Model.Designation</p>
+}
+else
+{
+    <p>Contact not found</p>
+}
+
+<br />
+
+<a asp-action="Index">Back</a>
+

@@ -1,0 +1,25 @@
+﻿@model Movie
+
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+<h1>Movie Details</h1>
+
+@if (Model != null)
+{
+    <p><b>ID:</b> @Model.Id</p>
+    <p><b>Title:</b> @Model.Title</p>
+    <p><b>Genre:</b> @Model.Genre</p>
+    <p><b>Release Date:</b> @Model.ReleaseDate.ToShortDateString()</p>
+    <p><b>Price:</b> @Model.Price</p>
+    <p><b>Rating:</b> @Model.Rating</p>
+}
+else
+{
+    <p>Movie not found</p>
+}
+
+<br />
+
+<a asp-action="Index">Back</a>
