@@ -1,0 +1,20 @@
+﻿@model List<Course>
+
+<h2>Courses</h2>
+
+<a asp-action="AddCourse" class=" btn btn-primary">Add Course</a>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.CourseId</td>
+            <td>@c.CourseName</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,31 @@
+﻿@model WebApplication8.Models.Student
+
+<h2>Add Student</h2>
+
+<form asp-action="Create" method="post">
+
+    <div>
+        <label>Name:</label>
+        <input asp-for="StudentName" />
+    </div>
+
+    <br />
+
+    <div>
+        <label>Course:</label>
+        <select asp-for="CourseId">
+            <option value="">-- Select Course --</option>
+
+            @foreach (var c in ViewBag.Courses)
+            {
+                <option value="@c.CourseId">@c.CourseName</option>
+            }
+        </select>
+    </div>
+
+    <br />
+
+    <button type="submit">Save</button>
+    <a asp-action="Index" class=" btn btn-primary">Back</a>
+
+</form>
