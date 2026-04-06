@@ -1,0 +1,186 @@
+
+Day34
+~~~~~~
+
+
+
+Entity Framework Core  (Continue....)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.  LINQ Queries in EF Core 8
+
+			_context.Employees.ToList()
+			_context.Employees.Where( e => e.Deptno == 10);
+			_context.Employees.Find(id)
+			_context.Employees.FirstOrDefault( e =>  e.Job == "Manager")
+			_context.Employees.Select( e =>  e.Job)
+			
+			
+			
+			
+			var  empList =  	_context.Employees.ToList();
+			
+			var  q1  =   from  item in   empList
+								where item.Deptno == 10
+								order by item.EmployeeId
+								select item;
+				
+
+2.  EF Core Migrations and Database Updates
+
+		Add-Migration  InitialMigration
+		Update-Database
+				
+		Add-Migration  Migration2
+		Update-Database
+		
+		
+		
+3.  Handling Relationships and Data Loading
+
+		a. Navigation Properties	on Model classses
+		b. OnModelCreating() method in DbContext class  
+		c.  _context.Employees
+							.Include(e => e.Dept)
+							.ToList()
+		d.   Types of Relationships
+					1-M
+					m-m
+					1-1
+					
+
+4. Performance Optimizations and Best Practices
+
+		
+		a.  Use  AsNoTracking()  for Read-Only Queries
+		
+					EF core tracks entities by default 
+							_context.Employees.ToList()	---	slower for reads
+							_context.Employees.AsNoTracking().ToList()	---	faster 
+					
+				 AsNoTracking()  -   improves the performance, reduces memory usage. 
+				 
+		b.    Select Only required columns 
+		
+					_context.Employees.ToList()    // Bad 
+					
+					var result  =  _context.Employees		// Good 
+											.Select(e =>  new { e.Ename,  e.Job}   )
+											.ToList()     
+					
+		c.   Use Include()  Carefully:
+		
+				--> Avoid unncecessary joins  (Include()  Usage)				
+				--> 
+					_context.Employees
+							.Include(e => e.Dept)
+							.ToList()			//  Over fetching 
+		
+		
+							_context.Employees						 
+							.ToList()			// Only when needed 
+		
+		d.  Use Pagination:
+		
+				_context.Employees.Take(10).ToList()
+				_context.Employees.Skip(10).Take(10).ToList()
+				_context.Employees.Skip(20).Take(10).ToList()
+		
+		
+		--> Instead of loading large data,it loads only required data 
+		
+		e.   Use Async Methods:
+				
+				_context.Employees.ToList()	// blocking
+				_context.SaveChanges()
+				
+				_context.Employees.ToListAsync()   // non-blocking
+				_context.SaveChangesAsync()
+				
+				
+		f.   Add Indexces on database table columns 
+		
+				-->  speed up the filtration process 
+				-->  to faster WHERE queries
+				--> Implement in database (sql server)
+				
+				CREATE INDEX IX_Students_CourseId  ON Students(CouseId)
+				CREATE INDEX IX_Employees_Deptno  ON Employees(Deptno)
+				
+		g.   Batch Operations (  Save Once )
+		
+		
+			// bad 
+				foreach(var  s  in  StudentsList)
+				{
+					_context.Students.Add(s);
+					_context.SaveChanges();
+				}
+				
+				
+				// good 
+				foreach(var  s  in  StudentsList)
+				{
+					_context.Students.Add(s); 
+				}
+				
+			_context.SaveChanges();	// Batch update 
+			
+			(Or)
+			
+			_context.Students.AddRange(StudentsList); 
+			_context.SaveChanges();	// Batch update 
+		
+						
+		h.  Filter Early:
+		
+		
+			_context.Employees.ToList().Where(e =>  e.Deptno == 10);  // bad 
+			_context.Employees.OrderBy(e => e.Job).Where(e =>  e.Deptno == 10).ToList();  // bad 
+			
+			
+			_context.Employees.Where(e =>  e.Deptno == 10).ToList();		// Good 
+			_context.Employees.Where(e =>  e.Deptno == 10).OrderBy(e => e.Job).ToList();  // Good  	
+
+
+	i.     Use  DTOs Instead of Entities :
+	
+		
+	-->  In ASP.NET Core, a DTO (Data Transfer Object) is a design pattern used to carry data between different layers of an application, typically between the server (API) and the client. 
+	
+	--> DTOs are simple classes or records that contain only properties—they are "dumb" objects that do not include any business logic.
+	
+	
+	// Define DTO 
+	class   EmpDTO
+	{
+		public  string Ename {  get;  set; }
+		public  string Job {  get;  set; }
+	}
+	
+	
+	//  Use DTO in select 
+	var result  =  _context.Employees		// Good 
+											.Select(e =>  new EmpDTO{ e.Ename,  e.Job}   )
+											.ToList()     
+	
+	
+	
+	Eg:
+				UserLoginDTO
+				UserRegisterDTO 
+				.... 
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
