@@ -1,0 +1,23 @@
+﻿@model ContactInfo
+
+<h2>Contact Details</h2>
+<hr />
+
+@if (Model != null)
+{
+    <p><b>ID:</b> @Model.ContactId</p>
+    <p><b>First Name:</b> @Model.FirstName</p>
+    <p><b>Last Name:</b> @Model.LastName</p>
+    <p><b>Company:</b> @Model.CompanyName</p>
+    <p><b>Email:</b> @Model.EmailId</p>
+    <p><b>Mobile:</b> @Model.MobileNo</p>
+    <p><b>Designation:</b> @Model.Designation</p>
+}
+else
+{
+    <p class="text-danger">Contact not found</p>
+}
+
+<br />
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

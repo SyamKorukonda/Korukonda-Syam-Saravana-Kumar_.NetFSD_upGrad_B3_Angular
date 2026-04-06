@@ -1,0 +1,72 @@
+Day35
+~~~~~~
+
+
+Dapper
+	1.  What is dapper? Why do we use?
+			-->  Created by Stack Overflow team 
+			-->  Lightweight and high performance framework 
+			-->  Uses raw SQL queries 
+			-->  Micro ORM 
+			-->  Automates the object mapping (SQL Query Result to C# objects )
+			-->  Easy to use with databases :  SQL Server, MySql, etc...
+			
+	2.  Diff. between dapper and EF Core?			
+			
+			Dapper  									EF Core
+			~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~			
+			Micro ORM 							Full ORM 
+		   speed+sql								features+productivity
+			No Migration 						Migration (Code-First)
+			Manual Joins							Relationships 
+			No change tracking				Change tracking
+			Minimal 								More features 
+			Very fast 								Slow 
+			
+			
+	
+	3.  How to use dapper in ASP.NET Core App?
+	
+Steps
+~~~~~~
+a.    Create database and corresponding tables 
+b. 	Install Dapper   &  SQL Client:
+				dotnet  add  package Dapper 			(Choose latest version)
+c.     Create Model Classes 		 
+d.     Add Connection String (appsettings.json)
+e.     Create Repository
+f.      Register in Dependency Injection
+g.      Create Service and    Register in Dependency Injection
+h.     Use Service/Repository in Controller
+	
+	
+-------------------------------------------
+
+Access appsettings values in ASP.NET Core Project 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Hint :  Inject  IConfiguration  in the constructor.    It can be implemented in eighter repository / service / controller. 
+
+
+
+ public class ProductRepository : IProductRepository
+ {
+     private readonly string _connStr;     
+     public ProductRepository(IConfiguration config)
+     {
+         _connStr =  config.GetConnectionString("DefaultConnection");
+     }
+ }
+ 
+ 
+ 
+ 
+ CRUD methods in  Dapper
+ ~~~~~~~~~~~~~~~~~~~~~
+  
+ 1.  Read All	:			Query<T>()			---		IEnumerable<T>
+ 2.  Read Single :		QueryFirstOrDefault<T>			----			T
+ 3.  Create  :				Execute()			---	     void
+4.  Update  :				Execute()			---	     void
+5.  Delete  :					Execute()			---	     void
