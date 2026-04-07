@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Course>
+
+<table border="1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Course Id</th>
+            <th>Course Name</th>
+            <th>Students</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.CourseId</td>
+                <td>@c.CourseName</td>
+                <td>
+                    @foreach (var s in c.Students)
+                    {
+                      @($"{s.StudentId} - {s.StudentName}") <br />
+                     }
+
+ 
+                    @if (!c.Students.Any())
+                    {
+                        <span>No Students</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

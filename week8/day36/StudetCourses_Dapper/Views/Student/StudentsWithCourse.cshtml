@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Student>
+
+<table border="1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Student Id</th>
+            <th>Student Name</th>
+            <th>Course Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.StudentId</td>
+                <td>@s.StudentName</td>
+                <td>@s.Course?.CourseName</td> <!--Avoid runtime error (NullReferenceException)
+                                                   If Course is NOT null → get CourseName
+                                                   If Course is null → return null (no error)-->
+            </tr>
+        }
+    </tbody>
+</table>
