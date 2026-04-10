@@ -1,0 +1,8 @@
+Day38
+~~~~~~
+
+1.  Data Integration (DB Communication - EF Core)
+2.  Service - Repository  Pattern
+3 . Async Programming -- End Points (Action Methods)
+4.  Security in Web API
+----------------------------------------------------------------------------------------
