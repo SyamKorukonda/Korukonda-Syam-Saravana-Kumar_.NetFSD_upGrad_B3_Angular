@@ -1,0 +1,19 @@
+
+// 1.  Install the package: 
+Microsoft.AspNet.WebApi.Cors
+
+// 2. Add CORS as service  --- [ Program.cs  ]
+builder.Services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+}));
+
+// 3. Use cors middleware    --- [ Program.cs  ]
+app.UseCors("AllowOrigin");
+
+
+
+
+

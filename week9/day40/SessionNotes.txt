@@ -1,0 +1,47 @@
+Day-40
+~~~~~~~~~
+
+
+Advanced API Features
+API Documentation and Testing
+
+
+
+
+
+
+Routing
+	What is routing?
+	Types:
+			a.  Conventional   (Program.cs)
+			b.  Attribute			 :   	[Route("api/[controller]")]
+													[HttpGet]
+													[HttpGet("id")]
+													[HttpGet("getproductsbycategory")]
+													[HttpGet("searchproducts")]
+-----------------------------------------------------------------------------------------------------													
+			
+
+DI in ASP.NET Core
+~~~~~~~~~~~~~~~~~
+		1.  Create service class (re-usable class)
+					a.   IProductService
+					b.   ProductService
+					
+		2.  Register the service in Program.cs
+		
+					// Register in Program.cs
+				builder.Services.AddScoped<IProductService, ProductService>();
+		
+		3.  Inject the service in Controller  / other services		
+			  
+			  //Inject into controllers:
+				public ProductsController(IProductService service)
+				{
+					_service = service;
+				}
+-------------------------------------------------------------------------------
+
+
+
+ 
