@@ -1,0 +1,211 @@
+
+Introduction to Angular
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+FrontEnd Framework :			Angular / React/  Vue 
+
+-- Single Page Applications (SPA)	
+-- Partial Page Updates (ajax)
+-- Required lot of client side programming 
+-- FrontEnd Framework makes the SPA development easy 
+
+-------------------------------------------------------------------------------------
+Q:   Single Page Applications   vs   Multi Plage Applications
+
+
+
+Environment Setup for Angular
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+https://nodejs.org/en
+
+
+a. 	Check the node version :
+			node    -v
+			npm   -v
+
+b.     Angular CLI instllation 
+		>	npm   i   -g    @angular/cli 
+
+c.     Verify the angular instillation by checking the version 
+
+		>  ng  version 
+	
+	
+	
+Angular  Project Creation:
+~~~~~~~~~~~~~~~~~~~~~~
+		ng    new    my-project 
+		cd my-project 
+		ng serve
+		ng serve   -o    	(Open the output in the browser)
+		ng   s   -o   			(Open the output in the browser)
+		
+		
+---------------------------------------------------------------------
+
+
+
+Component based development
+
+		code (business/application logic) +  UI (presentation logic)
+	
+Every Component
+~~~~~~~~~~~~~~~	
+		app.ts   (TypeScript)
+		app.html (UI)
+		app.css (styles)
+		app.spec.ts  		---		unit testing
+			
+		
+
+
+[Old Versions]
+		app.component.ts   (TypeScript)
+		app.component.html (UI)
+		app.component.css (styles)
+		app.component.spec.ts  		---		unit testing
+
+
+
+
+----------------------------------
+
+
+@Component()		--- decorator 
+
+
+	a.   Identification 
+	b.   Metadata 
+	
+	
+
+
+
+
+
+app-login
+app-emp
+app-register
+....
+
+
+
+
+
+
+
+
+
+
+
+
+1.   What is TypeScript?
+2.   JavaScript  vs TypeScript?
+3.   ES6  concepts in  JavaScript?
+
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+TypeScript 
+~~~~~~~~~~
+
+
+
+Install typescript :
+	npm i -g  typescript 		
+	
+Execution: 
+	tsc   Demo1.ts
+	node  Demo1.js 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Angular project structure
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+let   x = 10;  // js
+
+let   x:number  = 10;	// ts
+let   str:string  = "Hello";
+let   flag:boolean = true;
+let   z:any  = 123;
+
+
+
+
+
+
+Interpolation / Angular Expression 
+
+{{variable}}
+{{obj.prop}}
+{{uname}}
+{{emp.ename}}
+{{emps[0]}}
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------
+* Setting up the Angular development environment
+  - project structure
+  - CLI usage.
+  
+* Node.js runtime environment
+  - architecture
+  - project setup.
+  
+* Using core Node.js modules like
+   - fs
+   - http
+   - path
+   -  os.
+   
+* Handling asynchronous programming with 
+  - callbacks
+  - promises
+  - async/await.
