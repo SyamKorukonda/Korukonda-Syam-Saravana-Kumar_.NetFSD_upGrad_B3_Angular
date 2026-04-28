@@ -1,0 +1,137 @@
+
+Day51
+~~~~~~~
+
+
+
+Conditional Statements
+~~~~~~~~~~~~~~~~~~~~~
+[Old Version]  --  *ngIf Directive 
+	<div *ngIf="isLoggedIn">Welcome back!</div>
+
+[New  Version]  ---   @if block
+
+	@if (isLoggedIn) {
+			<div>Welcome back!</div>
+	}
+	
+	
+	//  If..Else
+	@if (isLoggedIn)
+   {
+			<div>Welcome back!</div>
+	} 
+	@else 
+	{
+		  <div>Please log in.</div>
+	}
+
+	
+
+
+Iterate Collections in Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[Old Version]
+
+	<tr  *ngFor="let item of empsArray">
+				<td>{{item.empno}}</td>
+			   .....
+    </tr>
+
+
+[Latest Version]   ---  @for  block
+
+ @for (item of empsArray; track item.empno) 
+    {
+       <tr>
+				<td>{{item.empno}}</td>
+			   .....
+    </tr>
+    }
+
+
+Eg2:
+<ul>
+    @for (item of skillsArray; track $index) {
+        <li> {{item}} </li>
+    }   
+</ul>
+
+
+
+
+Note:  @for block is Introduced in Angular 17, it replaces the traditional *ngFor directive with a more performant and concise syntax
+
+
+ Dependency Injection and Services
+	* Dependency injection to 
+   - provide services
+   - manage state
+   - share logic across components.
+
+------------------------------------------------------
+
+
+
+
+
+
+
+1.   Create a service class
+2.   Providing service class 	:		root  (OR)  app.config.ts / module / component 
+3.   injecting service class in component 
+	
+		  constructor(private dataService: DataService) {
+			this.message = this.dataService.getMessage();
+		  }
+
+
+
+
+
+
+
+
+
+
+
+Service:     EmpService
+Consumer :    
+		a.   Emp List component
+		b.   Emp Info  component
+
+
+
+
+
+
+
+ Root Level :  for all componetns, all modules , entire project 	(OLD)
+		[OR]
+app.config.ts :	common for all stand-alone components  (Latest)
+
+
+
+
+
+
+
+
+
+
+
+Generate lecture notes on Angular(Latest Version) for the following topics  
+
+
+   
+   
+Angular Routing and Navigation
+* Angular routing
+   - defining routes
+   - navigation
+   - route guards.
+* Advanced router features such as
+   -  lazy loading
+   - route parameters
+   -  child routes.

@@ -1,0 +1,10 @@
+@if(!productObj) {
+  <p>Requested Product details are not available</p>
+}
+@else {
+  <div style="border:1px solid gray; padding:5px;">
+    Product ID : {{productObj?.id}} <br/>
+    Name : {{productObj?.name}} <br/>
+    Price : {{productObj?.price}} <br/>
+  </div>
+}

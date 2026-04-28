@@ -1,0 +1,22 @@
+<h3>Contact List</h3>
+
+<a routerLink="/add-contact">Add Contact</a>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+
+  @for (c of contacts; track c.id) {
+    <tr>
+      <td>{{c.id}}</td>
+      <td>{{c.name}}</td>
+      <td>
+        <button (click)="viewContact(c.id)">View</button>
+        <button (click)="deleteContact(c.id)">Delete</button>
+      </td>
+    </tr>
+  }
+</table>

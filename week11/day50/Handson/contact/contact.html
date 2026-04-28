@@ -1,0 +1,38 @@
+<h2>Contact Management</h2>
+
+<input type="text" [(ngModel)]="searchText" placeholder="Search contacts">
+<br><br>
+
+<table border="1" cellpadding="10">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let c of contacts | search:searchText | slice:0:limit">
+
+    <!-- Interpolation + Built-in pipes -->
+    <td>{{ c.name | titlecase }}</td>
+    <td>{{ c.email | lowercase }}</td>
+
+    <!-- Custom pipe -->
+    <td>{{ c.phone | phone }}</td>
+
+    <!-- Property binding -->
+    <td [style.color]="c.status ? 'green' : 'red'">
+      {{ c.status | status }}
+    </td>
+
+    <!-- Event binding -->
+    <td>
+      <button (click)="changeStatus(c)">Toggle</button>
+    </td>
+
+  </tr>
+</table>
+
+<br>
+
+<button (click)="showLimit()">Show More / Less</button>

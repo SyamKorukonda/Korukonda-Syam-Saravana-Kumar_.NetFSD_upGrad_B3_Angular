@@ -1,0 +1,15 @@
+<h3>Develouping custom  pipes in Angular</h3>
+<hr>
+<table border="2" width="250">
+    <tr>
+        <th>User Name</th>
+        <th>Gender</th>
+        <th>Grade</th>
+    </tr>
+
+    <tr *ngFor="let item of usersArray">
+        <td>{{item.uname}}</td>
+        <td>{{item.gender|gender}}</td>
+        <td>{{item.grade|grade }}</td>
+    </tr>
+</table>

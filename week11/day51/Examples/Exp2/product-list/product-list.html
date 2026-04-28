@@ -1,0 +1,20 @@
+<h3>Collection of Products</h3>
+
+<mark>Note: Product data from service</mark>
+<br><br>
+
+<table border="2">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+
+  @for(item of productsArray; track item.id) {
+    <tr>
+      <td>{{item.id}}</td>
+      <td>{{item.name | titlecase}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+  }
+</table>
