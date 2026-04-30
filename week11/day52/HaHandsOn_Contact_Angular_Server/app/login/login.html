@@ -1,0 +1,16 @@
+ <fieldset>
+    <legend>User Login</legend>
+
+    <label>User Name : </label>
+    <input type="text"  [(ngModel)]="uname" />
+    <br/><br/>
+
+    <label>Password : </label>
+    <input type="password"  [(ngModel)]="password" />
+    <br/><br/>
+
+    <button   (click)="loginButtonClick()">Login</button>  
+ 
+    <p>{{message}}</p>
+
+</fieldset>

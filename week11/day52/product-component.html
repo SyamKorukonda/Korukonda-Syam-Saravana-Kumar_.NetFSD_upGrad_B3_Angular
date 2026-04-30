@@ -1,0 +1,25 @@
+<h3>API Calls using HTTP Client in Angular</h3>
+<hr/>
+
+<button (click)="buttonClick()">Get Products</button>
+
+<hr/>
+
+<table border="2" width="500">
+    <tr>
+        <th>Product Id</th>
+        <th>Name</th>
+        <th>Unti Price</th>
+        <th>Category</th>
+    </tr>
+
+    @for(item of data; track item.id)
+    {
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.category}}</td>
+        </tr>
+    }
+</table>

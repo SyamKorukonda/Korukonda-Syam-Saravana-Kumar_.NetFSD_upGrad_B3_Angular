@@ -1,0 +1,48 @@
+<input [(ngModel)]="newContact.firstName" placeholder="First Name">
+<input [(ngModel)]="newContact.lastName" placeholder="Last Name">
+<input [(ngModel)]="newContact.emailId" placeholder="Email">
+<input [(ngModel)]="newContact.mobileNo" placeholder="Mobile No">
+<input [(ngModel)]="newContact.designation" placeholder="Designation">
+<input [(ngModel)]="newContact.companyId" placeholder="Company Id" type="number">
+<input [(ngModel)]="newContact.departmentId" placeholder="Department Id" type="number">
+
+<hr/>
+
+<button (click)="getContactsClick()"> Get Contacts </button>
+<button (click)="addContactClick()"> Add Contact </button>
+<button (click)="updateContactClick()"> Update Contact </button>
+
+<hr/>
+
+<table border="2" width="1500">
+  <tr>
+    <th>Contact Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Designation</th>
+    <th>Company Id</th>
+    <th>Department</th>
+    <th>Actions</th>
+  </tr>
+
+  @for(item of data; track item.contactId)
+  {
+    <tr>
+      <td>{{item.contactId}}</td>
+      <td>{{item.firstName}}</td>
+      <td>{{item.lastName}}</td>
+      <td>{{item.emailId}}</td>
+      <td>{{item.mobileNo}}</td>
+      <td>{{item.designation}}</td>
+      <td>{{item.companyId}}</td>
+      <td>{{item.departmentName}}</td>
+
+      <td>
+        <button (click)="deleteContactClick(item.contactId)">Remove</button>
+        <button (click)="editContactClick(item)">Edit</button>
+      </td>
+    </tr>
+  }
+</table>
