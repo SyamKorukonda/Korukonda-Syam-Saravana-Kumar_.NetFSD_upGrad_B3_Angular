@@ -1,0 +1,29 @@
+ 
+<h1>Reactive  Product Searching using RxJS Operators</h1>
+
+<input 
+  type="text" 
+  [formControl]="searchControl" 
+  placeholder="Search products..."
+/>
+
+@if(isLoading)
+{
+    <div>
+        <img src="/spinner.gif" width="50" />
+        <br/>
+        Loading...
+    </div>
+}
+
+
+<ol>
+
+    @for(product of products$ | async; track $index) 
+    {
+            <li>
+                {{ product.title }} - ₹{{ product.price }} ({{ product.category }})
+            </li>
+    }
+
+</ol>
