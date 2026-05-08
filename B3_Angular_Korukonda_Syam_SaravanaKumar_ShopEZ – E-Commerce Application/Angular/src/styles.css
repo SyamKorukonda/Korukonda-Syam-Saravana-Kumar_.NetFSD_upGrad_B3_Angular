@@ -1,0 +1,144 @@
+/* 
+   ShopEZ — Purple & Dark Theme
+   Light Mode / Dark Mode via body class
+ */
+
+/*  Light Mode (default)  */
+body, body.light-mode {
+  --primary:      #6f42c1;
+  --primary-dark: #4a1fa8;
+  --primary-soft: rgba(111,66,193,0.12);
+  --bg:           #f8f9fa;
+  --card-bg:      #ffffff;
+  --text:         #212529;
+  --text-muted:   #6c757d;
+  --border:       #dee2e6;
+  --navbar-bg:    #6f42c1;
+  --input-bg:     #ffffff;
+}
+
+/*  Dark Mode  */
+body.dark-mode {
+  --primary:      #9b59b6;
+  --primary-dark: #6f42c1;
+  --primary-soft: rgba(155,89,182,0.15);
+  --bg:           #121212;
+  --card-bg:      #1e1e2e;
+  --text:         #ffffff;
+  --text-muted:   #a0a0b0;
+  --border:       #2e2e4e;
+  --navbar-bg:    #1e1e2e;
+  --input-bg:     #2a2a3e;
+}
+
+/*  Base  */
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/*  Dark mode — global overrides  */
+body.dark-mode .card {
+  background-color: var(--card-bg) !important;
+  color: var(--text);
+  border-color: var(--border);
+}
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+  background-color: var(--input-bg);
+  color: var(--text);
+  border-color: var(--border);
+}
+body.dark-mode .form-control::placeholder { color: var(--text-muted); }
+body.dark-mode .table { color: var(--text); }
+body.dark-mode .table-light { background-color: #2a2a3e !important; color: var(--text); }
+body.dark-mode .input-group-text {
+  background-color: var(--input-bg);
+  color: var(--text);
+  border-color: var(--border);
+}
+body.dark-mode .dropdown-menu {
+  background-color: var(--card-bg);
+  border-color: var(--border);
+}
+body.dark-mode .dropdown-item { color: var(--text); }
+body.dark-mode .dropdown-item:hover { background-color: var(--primary-soft); }
+body.dark-mode .modal-content { background-color: var(--card-bg); color: var(--text); }
+
+/*  Purple utilities  */
+.text-purple  { color: var(--primary) !important; }
+.bg-purple    { background-color: var(--primary) !important; }
+.bg-purple-soft { background-color: var(--primary-soft) !important; }
+
+.btn-purple {
+  background-color: var(--primary);
+  color: #fff !important;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.btn-purple:hover, .btn-purple:active {
+  background-color: var(--primary-dark) !important;
+  color: #fff !important;
+}
+
+.btn-outline-purple {
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  border-radius: 8px;
+  font-weight: 500;
+  background: transparent;
+  transition: all 0.2s;
+}
+.btn-outline-purple:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/*  Cards  */
+.shopez-card { border-radius: 14px; }
+.shopez-product-card {
+  border-radius: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.shopez-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(111,66,193,0.18) !important;
+}
+
+/*  Form focus — purple  */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem var(--primary-soft);
+}
+
+/*  Navbar  */
+.shopez-navbar {
+  background-color: var(--navbar-bg) !important;
+  transition: background-color 0.3s ease;
+}
+
+/*  Spinner  */
+.spinner-border.text-purple { color: var(--primary) !important; }
+
+/*  Badges  */
+.badge { font-weight: 500; }
+
+/*  Toast  */
+.toast { min-width: 260px; }
+
+/*  Cart sidebar responsive  */
+@media (max-width: 576px) {
+  .cart-sidebar { width: 100vw !important; right: -100vw !important; }
+  .cart-sidebar.open { right: 0 !important; }
+}
+
+/*  Scrollbar — dark mode  */
+body.dark-mode ::-webkit-scrollbar { width: 6px; }
+body.dark-mode ::-webkit-scrollbar-track { background: #1e1e2e; }
+body.dark-mode ::-webkit-scrollbar-thumb { background: #6f42c1; border-radius: 3px; }
