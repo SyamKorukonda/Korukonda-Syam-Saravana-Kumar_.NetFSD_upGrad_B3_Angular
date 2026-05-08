@@ -1,0 +1,108 @@
+
+
+
+Docker
+~~~~~
+
+
+Dockerfile
+Docker  Image 
+Docker Container 
+
+
+
+
+
+
+To run asp.net core web api
+~~~~~~~~~~~~~~~~~~~~~~~~~
+.net sdk  ---   8.0
+asp.net core framework  ---  8.0 
+your project sources (*.dll)	
+		--  WebApplication30.dll
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Steps to dockerize the asp.net core web api application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.  Create dockerfile 
+
+2.  Build Docker Image	(Run these commands in the folder where *.csproj located)
+		docker build  -t mywebapi   .
+
+3.   Run Docker Container 
+		docker run -d -p 5000:8080 mywebapi
+		
+		
+Note:
+			-  Docker containers have their own isolated network.
+			-  Your ASP.NET app was running correctly inside the container, but your machine could not reach it until you mapped correctly port numbers:  		
+					Host OS Port (Access from browser) → Container Port  (Inside the container)
+
+ 
+4.   Access Application		
+		http://localhost:5000/api/Products
+
+
+ --------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+
+
+Steps to dockerize the angular application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+-----------------------------------------
+1. build / distributed files 
+2. web server   (NGINX )
+-------------------------------------------
+
+
+What is NGINX?
+
+NGINX is a high-performance, open-source HTTP web server, reverse proxy, load balancer, and caching engine designed for speed and stability. It uses an asynchronous event-driven architecture to handle thousands of concurrent connections efficiently, making it the most popular choice for high-traffic websites, often deployed in Docker containers and Kubernetes environments.
+
+
+
+Steps
+~~~~~~
+1.  Create dockerfile 
+
+2.  Build Docker Image
+		docker build -t angularapp .
+
+3.   Run Docker Container 
+		docker run -d -p 4200:80 angularapp
+		 
+4.   Access Application		
+		http://localhost:4200
+
+
+ --------------------------------------------------------------------------------------------------------
