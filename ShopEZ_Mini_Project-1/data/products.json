@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "Apple MacBook Pro",
+    "description": "High performance laptop",
+    "price": 125000,
+    "image": "images/laptop.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Apple Iphone 15",
+    "description": "Latest smartphone",
+    "price": 65000,
+    "image": "images/mobile.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Nike Air Jordan 1 Retro High OG",
+    "description": "Comfortable running shoes",
+    "price": 25000,
+    "image": "images/shoes.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Rolex Submariner Date",
+    "description": "Smart digital watch",
+    "price": 355000,
+    "image": "images/watch.jpg"
+  },
+  {
+    "id": 5,
+    "name": " Sony WH-1000XM Headphones",
+    "description": "Wireless headphones",
+    "price": 38000,
+    "image": "images/headphones.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Galaxy Tab S11",
+    "description": "10-inch display tablet",
+    "price": 55000,
+    "image": "images/tablet.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Sony Alpha 1 II",
+    "description": "Sony Alpha 1 II",
+    "price": 245000,
+    "image": "images/camera.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Mouawad 1001 Nights  Purse ",
+    "description": "Stylish backpack",
+    "price": 61200,
+    "image": "images/bag.jpg"
+  }
+]
+
+
+
+
+
+
+
+
+

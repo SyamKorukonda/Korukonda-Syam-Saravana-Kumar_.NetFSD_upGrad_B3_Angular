@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+
+    <!-- Bootstrap CSS: provides responsive layout and UI components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: applies project-specific styling -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Navbar: top navigation bar for branding and cart access -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+
+    <!-- Brand link: redirects user to homepage -->
+    <a class="navbar-brand" href="index.html">ShopEZ</a>
+
+    <!-- Cart button: shows number of items in cart -->
+    <div class="ms-auto">
+        <a href="cart.html" class="btn btn-outline-light">
+            Cart (<span id="cartCount">0</span>)
+        </a>
+    </div>
+
+</nav>
+
+<!-- Breadcrumb: shows navigation path -->
+<div class="container-fluid px-5 mt-3">
+    <nav>
+        <ol class="breadcrumb p-3 bg-light rounded">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li> <!-- Link to home page -->
+            <li class="breadcrumb-item"><a href="products.html">Products</a></li> <!-- Link to products page -->
+            <li class="breadcrumb-item active">Details</li> <!-- Current page indicator -->
+        </ol>
+    </nav>
+</div>
+
+<!-- Product details container: filled dynamically -->
+<div class="container-fluid px-5 mt-5" id="details"></div>
+
+<!-- jQuery: simplifies JavaScript operations -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Cart JS: handles add to cart functionality -->
+<script src="js/cart.js"></script>
+
+<!-- Common JS: updates cart count -->
+<script src="js/common.js"></script>
+
+<script>
+
+// Get product ID from URL to identify selected product
+let id = new URLSearchParams(window.location.search).get("id");
+
+// Variable to store selected product data
+let selectedProduct = null;
+
+// Load product data from JSON file
+$.getJSON("data/products.json", function(products) {
+
+    // Find the product matching the ID
+    selectedProduct = products.find(x => x.id == id);
+
+    // Display product details dynamically
+    $("#details").html(`
+
+        <div class="row">
+
+            <!-- Product image section -->
+            <div class="col-md-6 text-center mb-4">
+                <img src="${selectedProduct.image}" class="img-fluid rounded shadow-sm" 
+                     style="max-height: 500px; width: 100%; object-fit: contain; background: white; padding: 20px;">
+            </div>
+            
+            <!-- Product information section -->
+            <div class="col-md-6 d-flex flex-column justify-content-center px-4">
+
+                <!-- Product name -->
+                <h1 class="display-4 fw-bold">${selectedProduct.name}</h1>
+
+                <!-- Product description -->
+                <p class="lead mt-3 text-secondary">${selectedProduct.description}</p>
+
+                <!-- Product price -->
+                <h2 class="text-success mt-4 mb-4">₹${selectedProduct.price.toLocaleString()}</h2>
+                
+                <!-- Add to cart button -->
+                <button class="btn btn-primary btn-lg w-50 py-3 mt-2" onclick="addToCartFromDetails()">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    `);
+});
+
+// Function to add selected product to cart
+function addToCartFromDetails() {
+    addToCart(selectedProduct);
+}
+
+</script>
+
+</body>
+</html>

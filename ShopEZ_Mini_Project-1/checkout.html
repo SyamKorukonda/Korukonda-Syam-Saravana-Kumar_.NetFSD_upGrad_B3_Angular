@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+
+    <!-- Bootstrap CSS: provides responsive layout and ready-made UI components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: used to apply project-specific styling -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- Body with light background for better readability -->
+<body class="bg-light">
+
+<!-- Navbar: top section used for branding and navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+
+    <!-- Brand link: navigates user to homepage -->
+    <a class="navbar-brand" href="index.html">ShopEZ</a>
+
+</nav>
+
+<!-- Full-width container for breadcrumb navigation -->
+<div class="container-fluid px-5 mt-3">
+
+    <nav>
+
+        <!-- Breadcrumb: shows current page path -->
+        <ol class="breadcrumb p-3 bg-white rounded shadow-sm">
+
+            <!-- Navigation links for user guidance -->
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="products.html">Products</a></li>
+            <li class="breadcrumb-item"><a href="cart.html">Cart</a></li>
+
+            <!-- Active page indicator -->
+            <li class="breadcrumb-item active">Checkout</li>
+
+        </ol>
+
+    </nav>
+
+</div>
+
+<!-- Centered container for checkout form -->
+<div class="container mt-5 mb-5">
+
+    <!-- Row used to align content -->
+    <div class="row justify-content-center">
+
+        <!-- Column controls width and responsiveness -->
+        <div class="col-md-8 col-lg-6">
+
+            <!-- Card: styled box to hold form -->
+            <div class="card shadow-lg border-0 p-5">
+
+                <!-- Heading: title of checkout page -->
+                <h2 class="text-center mb-4">Checkout</h2>
+
+                <!-- Form: collects user details -->
+                <form id="checkoutForm">
+
+                    <!-- Name input section -->
+                    <div class="mb-3">
+
+                        <!-- Label: describes input field -->
+                        <label class="form-label fw-bold">Full Name</label>
+
+                        <!-- Input: takes user name -->
+                        <input type="text" class="form-control form-control-lg" placeholder="Enter your name" required>
+
+                    </div>
+
+                    <!-- Email input section -->
+                    <div class="mb-3">
+
+                        <!-- Label for email -->
+                        <label class="form-label fw-bold">Email Address</label>
+
+                        <!-- Input: takes user email -->
+                        <input type="email" class="form-control form-control-lg" placeholder="Enter your email" required>
+
+                    </div>
+
+                    <!-- Address input section -->
+                    <div class="mb-4">
+
+                        <!-- Label for address -->
+                        <label class="form-label fw-bold">Shipping Address</label>
+
+                        <!-- Textarea: takes full address -->
+                        <textarea class="form-control form-control-lg" rows="3" placeholder="Enter your full address" required></textarea>
+
+                    </div>
+
+                    <!-- Submit button: places order -->
+                    <button class="btn btn-primary btn-lg w-100 py-3">
+                        Place Order
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery: simplifies JavaScript operations -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Checkout JS: handles form submission and order logic -->
+<script src="js/checkout.js"></script>
+
+</body>
+</html>

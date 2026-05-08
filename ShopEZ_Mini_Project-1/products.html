@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShopEZ - Products</title>
+
+    <!-- Bootstrap CSS: provides responsive layout and UI components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: applies project-specific styling -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Viewport meta tag: ensures proper scaling on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<!-- Navbar: top navigation bar for branding and cart access -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+
+    <!-- Brand link: redirects user to homepage -->
+    <a class="navbar-brand" href="index.html">ShopEZ</a>
+
+    <!-- Cart button: shows number of items in cart -->
+    <div class="ms-auto">
+        <a href="cart.html" class="btn btn-outline-light">
+            Cart (<span id="cartCount">0</span>)
+        </a>
+    </div>
+
+</nav>
+
+<!-- Breadcrumb: shows current page location -->
+<div class="container-fluid mt-3 px-4">
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li> <!-- Link to homepage -->
+            <li class="breadcrumb-item active">Products</li> <!-- Current page -->
+        </ol>
+    </nav>
+</div>
+
+<!-- Main container for product listing -->
+<div class="container-fluid mt-4 mb-5 px-4">
+
+    <!-- Heading: indicates product section -->
+    <h2 class="mb-4">All Products</h2>
+    
+    <!-- Search section -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+
+            <!-- Search input: allows filtering products -->
+            <input type="text" id="searchBox" class="form-control form-control-lg" placeholder="Search for products...">
+
+        </div>
+    </div>
+
+    <!-- Product list container: dynamically filled using JavaScript -->
+    <div class="row" id="productList"></div>
+
+</div>
+
+<!-- jQuery: simplifies JavaScript operations -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Cart JS: handles add to cart functionality -->
+<script src="js/cart.js"></script> 
+
+<!-- Products JS: loads and displays products -->
+<script src="js/products.js"></script> 
+
+<!-- Common JS: updates cart count -->
+<script src="js/common.js"></script> 
+
+</body>
+</html>
