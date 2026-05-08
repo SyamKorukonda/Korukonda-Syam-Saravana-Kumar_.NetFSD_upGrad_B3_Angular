@@ -1,0 +1,55 @@
+/* Authentication page styles */
+
+.auth-bg {
+  background: linear-gradient(135deg,#F4F1FF, #6f42c1);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 20px;
+  background: var(--card-bg);
+}
+
+.auth-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #6f42c1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-input-icon {
+  background: #6f42c1;
+  color: #fff;
+  border-color: #6f42c1;
+}
+
+.btn-purple {
+  background: #6f42c1;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+}
+
+.btn-purple:hover {
+  background: #5a32a3;
+  color: #fff;
+}
+
+.text-purple {
+  color: #6f42c1;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #6f42c1;
+  box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+}
+
+:host-context(.dark-mode) .auth-card {
+  background: #1e1e2e;
+  color: #fff;
+}

@@ -1,0 +1,134 @@
+<div class="checkout-page">
+
+  <div class="container py-4">
+
+    <h2 class="fw-bold mb-4 text-purple">Checkout</h2>
+
+    <!-- Loading -->
+    <div class="text-center py-5" *ngIf="loading">
+      <div class="spinner-border"></div>
+    </div>
+
+    <ng-container *ngIf="!loading">
+
+      <ng-container *ngIf="cartItems$ | async as items">
+
+        <div *ngIf="items && items.length > 0; else empty">
+
+          <div class="row g-4">
+
+            <!-- LEFT (CART ITEMS) -->
+            <div class="col-lg-8">
+
+              <div class="shopez-card">
+
+                <div class="checkout-item"
+                     *ngFor="let item of items">
+
+                  <!-- IMAGE -->
+                  <img
+                    [src]="item.imageUrl || 'assets/images/no-image.png'"
+                    (error)="onImgErr($event)">
+
+                  <!-- INFO -->
+                  <div class="flex-grow-1">
+
+                    <h6>{{ item.productName }}</h6>
+
+                    <p>Price: ₹{{ item.price }}</p>
+
+                    <!-- QTY -->
+                    <div class="qty-box">
+
+                      <button
+                        (click)="decrease(item)"
+                        [disabled]="item.quantity <= 1">-</button>
+
+                      <span>{{ item.quantity }}</span>
+
+                      <button
+                        (click)="increase(item)"
+                        [disabled]="item.quantity >= item.stock">+</button>
+
+                    </div>
+
+                  </div>
+
+                  <!-- RIGHT -->
+                  <div class="text-end">
+
+                    <div class="checkout-price">
+                      ₹{{ item.subtotal }}
+                    </div>
+
+                    <button class="btn-remove"
+                            (click)="remove(item.cartItemId)">
+                      ✕
+                    </button>
+
+                  </div>
+
+                </div>
+
+                <button class="btn btn-outline-danger mt-3"
+                        (click)="clear()">
+                  Clear Cart
+                </button>
+
+              </div>
+
+            </div>
+
+            <!-- RIGHT (SUMMARY) -->
+            <div class="col-lg-4">
+
+              <div class="shopez-card">
+
+                <h5 class="fw-bold mb-3">Order Summary</h5>
+
+                <div *ngFor="let item of items" class="mb-2">
+                  {{ item.productName }} × {{ item.quantity }}
+                </div>
+
+                <hr>
+
+                <div class="checkout-total">
+                  Total: ₹{{ totalPrice$ | async }}
+                </div>
+
+                <!-- Messages -->
+                <div class="text-danger mt-2" *ngIf="error">{{ error }}</div>
+                <div class="text-success mt-2" *ngIf="success">{{ success }}</div>
+
+                <!-- Button -->
+                <button class="btn btn-purple w-100 mt-3"
+                        (click)="placeOrder()"
+                        [disabled]="placing">
+                  {{ placing ? 'Placing...' : 'Place Order' }}
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </ng-container>
+
+      <!-- EMPTY -->
+      <ng-template #empty>
+        <div class="text-center">
+          <h4>Cart is empty</h4>
+          <a routerLink="/products" class="btn btn-purple mt-2">
+            Browse Products
+          </a>
+        </div>
+      </ng-template>
+
+    </ng-container>
+
+  </div>
+
+</div>

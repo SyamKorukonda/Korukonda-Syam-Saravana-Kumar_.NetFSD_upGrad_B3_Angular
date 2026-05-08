@@ -1,0 +1,128 @@
+<div class="min-vh-100 d-flex align-items-center justify-content-center auth-bg py-4">
+
+  <!-- Card container -->
+  <div class="card border-0 shadow-lg auth-card p-4">
+
+    <!-- Header section -->
+    <div class="text-center mb-4">
+      <div class="auth-icon mx-auto mb-3">
+        <i class="bi bi-person-plus text-white fs-1"></i>
+      </div>
+
+      <h3 class="fw-bold">Create Account</h3>
+      <p class="text-muted small">Join ShopEZ and start shopping</p>
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <!-- Name input -->
+      <div class="mb-3">
+        <label class="form-label fw-semibold small">Full Name</label>
+
+        <div class="input-group">
+          <span class="input-group-text auth-input-icon">
+            <i class="bi bi-person"></i>
+          </span>
+
+          <input type="text"
+                 class="form-control"
+                 formControlName="name"
+                 placeholder="User Name "
+                 [class.is-invalid]="f['name'].invalid && f['name'].touched">
+        </div>
+
+        <!-- Validation message -->
+        <div class="text-danger small mt-1"
+             *ngIf="f['name'].invalid && f['name'].touched">
+          Name must be at least 3 characters.
+        </div>
+      </div>
+
+      <!-- Email input -->
+      <div class="mb-3">
+        <label class="form-label fw-semibold small">Email Address</label>
+
+        <div class="input-group">
+          <span class="input-group-text auth-input-icon">
+            <i class="bi bi-envelope"></i>
+          </span>
+
+          <input type="email"
+                 class="form-control"
+                 formControlName="email"
+                 placeholder="you@example.com"
+                 [class.is-invalid]="f['email'].invalid && f['email'].touched">
+        </div>
+
+        <!-- Validation message -->
+        <div class="text-danger small mt-1"
+             *ngIf="f['email'].invalid && f['email'].touched">
+          Valid email is required.
+        </div>
+      </div>
+
+      <!-- Password input -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold small">Password</label>
+
+        <div class="input-group">
+          <span class="input-group-text auth-input-icon">
+            <i class="bi bi-lock"></i>
+          </span>
+
+          <input [type]="show ? 'text' : 'password'"
+                 class="form-control"
+                 formControlName="password"
+                 placeholder="Min 8 characters"
+                 [class.is-invalid]="f['password'].invalid && f['password'].touched">
+
+          <!-- Toggle password visibility -->
+          <button class="btn btn-outline-secondary"
+                  type="button"
+                  (click)="show = !show">
+            <i class="bi"
+               [class.bi-eye]="!show"
+               [class.bi-eye-slash]="show"></i>
+          </button>
+        </div>
+
+        <!-- Validation message -->
+        <div class="text-danger small mt-1"
+             *ngIf="f['password'].invalid && f['password'].touched">
+          Password must be at least 8 characters.
+        </div>
+      </div>
+
+      <!-- Success message -->
+      <div class="alert alert-success py-2 small" *ngIf="success">
+        {{ success }}
+      </div>
+
+      <!-- Error message -->
+      <div class="alert alert-danger py-2 small" *ngIf="error">
+        {{ error }}
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit"
+              class="btn btn-purple w-100 fw-bold py-2"
+              [disabled]="form.invalid || loading">
+
+        <!-- Loading spinner -->
+        <span class="spinner-border spinner-border-sm me-2" *ngIf="loading"></span>
+
+        {{ loading ? 'Creating account...' : 'Register' }}
+      </button>
+    </form>
+
+    <!-- Login redirect -->
+    <div class="text-center mt-4">
+      <small class="text-muted">
+        Already have an account?
+        <a routerLink="/login" class="text-purple fw-semibold">Sign in</a>
+      </small>
+    </div>
+
+  </div>
+</div>

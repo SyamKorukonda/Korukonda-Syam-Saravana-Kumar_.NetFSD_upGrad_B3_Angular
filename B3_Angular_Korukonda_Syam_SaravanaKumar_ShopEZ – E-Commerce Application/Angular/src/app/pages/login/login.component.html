@@ -1,0 +1,85 @@
+<!-- FULL PAGE BACKGROUND -->
+<div class="min-vh-100 d-flex align-items-center justify-content-center auth-bg py-4">
+
+  <div class="card shadow-lg auth-card p-4">
+
+    <!-- HEADER -->
+    <div class="text-center mb-4">
+
+      <!-- Logo -->
+      <img src="assets/images/logo.png"
+          alt="ShopEZ Logo"
+          width="90"
+          class="mb-3">
+
+      <h3 class="fw-bold">Welcome Back!</h3>
+      <p class="text-muted small">Sign in to your ShopEZ account</p>
+    </div>
+
+    <!-- FORM -->
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <!-- EMAIL -->
+      <div class="mb-3">
+        <label>Email</label>
+
+        <input type="email"
+               formControlName="email"
+               class="form-control"
+               placeholder="you@example.com"
+               [class.is-invalid]="f['email'].invalid && f['email'].touched">
+
+        <div class="text-danger small"
+             *ngIf="f['email'].invalid && f['email'].touched">
+          Valid email is required
+        </div>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="mb-3">
+
+        <label>Password</label>
+
+        <div class="input-group">
+
+          <input
+            [type]="show ? 'text' : 'password'"
+            formControlName="password"
+            class="form-control"
+            placeholder="Min 8 characters"
+            [class.is-invalid]="f['password'].invalid && f['password'].touched">
+
+          <!-- Toggle -->
+          <button type="button" (click)="show = !show">
+            {{ show ? 'Hide' : 'Show' }}
+          </button>
+
+        </div>
+
+        <div class="text-danger small"
+             *ngIf="f['password'].invalid && f['password'].touched">
+          Password must be at least 8 characters
+        </div>
+
+      </div>
+
+      <!-- ERROR -->
+      <div class="text-danger mb-2" *ngIf="error">
+        {{ error }}
+      </div>
+
+      <!-- SUBMIT -->
+      <button class="btn btn-purple w-100"
+              [disabled]="form.invalid || loading">
+        {{ loading ? 'Signing in...' : 'Sign In' }}
+      </button>
+
+    </form>
+
+    <!-- REGISTER -->
+    <div class="text-center mt-3">
+      <a routerLink="/register">Create account</a>
+    </div>
+
+  </div>
+</div>

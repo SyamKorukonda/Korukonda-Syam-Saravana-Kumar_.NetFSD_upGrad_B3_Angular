@@ -1,0 +1,13 @@
+.shopez-navbar {
+  background: var(--navbar-bg) !important;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid #ffc107;
+}
+
+.logo-img {
+  height: 60px !important;
+  width: auto;
+}

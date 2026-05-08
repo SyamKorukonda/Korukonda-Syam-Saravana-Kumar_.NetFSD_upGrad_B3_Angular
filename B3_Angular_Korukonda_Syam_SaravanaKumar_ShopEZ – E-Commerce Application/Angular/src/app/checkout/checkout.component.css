@@ -1,0 +1,95 @@
+.text-purple {
+  color: #6f42c1;
+}
+
+/* PAGE */
+.checkout-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg,#F4F1FF, #6f42c1);
+  padding: 30px;
+}
+
+/* CARD */
+.shopez-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* ITEM */
+.checkout-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* IMAGE BIGGER */
+.checkout-item img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* TEXT */
+.checkout-item h6 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.checkout-item p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* QTY */
+.qty-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-box button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+/* PRICE */
+.checkout-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #28a745;
+}
+
+/* REMOVE BTN */
+.btn-remove {
+  border: none;
+  background: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* TOTAL */
+.checkout-total {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* BUTTON */
+.btn-purple {
+  background: #6f42c1;
+  color: white;
+  border: none;
+}
+
+.btn-purple:hover {
+  background: #5a32a3;
+}

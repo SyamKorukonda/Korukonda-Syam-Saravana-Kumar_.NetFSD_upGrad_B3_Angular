@@ -1,0 +1,93 @@
+<div class="admin-page">
+
+  <div class="container py-4">
+
+    <!-- HEADER -->
+    <h2 class="fw-bold mb-4 text-white">All Users</h2>
+
+    <!-- SEARCH -->
+    <div class="search-card mb-4">
+
+      <div class="input-group">
+
+        <span class="input-group-text bg-white">
+          <i class="bi bi-search"></i>
+        </span>
+
+        <input type="text"
+               class="form-control"
+               placeholder="Search users..."
+               [(ngModel)]="searchTerm"
+               (ngModelChange)="onSearch($event)">
+
+        <button *ngIf="searchTerm"
+                class="btn btn-outline-secondary"
+                (click)="clearSearch()">
+          Clear
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- LOADING -->
+    <div *ngIf="loading" class="text-center text-white">
+      <div class="spinner-border"></div>
+    </div>
+
+    <!-- TABLE -->
+    <div *ngIf="!loading" class="table-card">
+
+      <table class="table align-middle">
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let user of filteredUsers">
+
+            <td>#{{ user.userId }}</td>
+
+            <td class="fw-semibold">
+              {{ user.userName }}
+            </td>
+
+            <td class="text-muted">
+              {{ user.emailAddress }}
+            </td>
+
+            <!-- ROLE BADGE -->
+            <td>
+              <span class="badge px-3 py-2"
+                    [ngClass]="user.role === 'Admin' ? 'bg-danger' : 'bg-primary'">
+
+                {{ user.role }}
+
+              </span>
+            </td>
+
+          </tr>
+
+          <!-- EMPTY -->
+          <tr *ngIf="filteredUsers.length === 0">
+            <td colspan="4" class="text-center text-muted py-4">
+              No users found
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

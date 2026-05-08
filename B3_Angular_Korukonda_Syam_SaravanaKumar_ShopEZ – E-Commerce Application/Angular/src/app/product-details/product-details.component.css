@@ -1,0 +1,81 @@
+
+/* 1. MAIN PAGE BACKGROUND */
+.main-bg {
+  background: linear-gradient(135deg,#F4F1FF, #6f42c1);
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+/* For Enitire background colour for this page */
+.productsDetails-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F4F1FF, #E6E9FF);
+  padding: 20px;
+}
+
+/* 2. THE CARD BOX (CART/CONTENT AREA) */
+.card-box, .order-card, .shopez-product-card {
+   background: linear-gradient(135deg, #F4F1FF, #E6E9FF) !important; /* Your new cart background */
+  padding: 30px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+/* 3. PRODUCT IMAGE CONTAINER */
+.img-wrapper, .item-img-box, .product-img-container {
+  background: linear-gradient(135deg, #F4F1FF, #E6E9FF) !important; /* Your new image background */
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 4. IMAGES */
+.product-img, .item-img {
+  max-height: 350px;
+  width: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply; /* Helps transparent images blend into the Almond background */
+}
+
+/* 5. TEXT & TITLES */
+h2, .product-title, .card-title {
+  color: #4A4A4A; /* Dark grey for readability against the cream */
+  font-weight: 700;
+}
+
+.text-muted {
+  color: #7A7A7A !important;
+}
+
+/* 6. BUTTONS (Keeping your Orange accent for action) */
+.btn-purple {
+  background: #E491C9;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 25px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(255, 122, 24, 0.2);
+}
+
+.btn-purple:hover {
+  background: #FFB399;
+  transform: translateY(-2px);
+}
+
+/* 7. PRICE & BADGES */
+.text-success {
+  color: #2D6A4F !important; /* Deep forest green looks great with pink/cream */
+  font-weight: 800;
+}
+
+.badge.bg-success {
+  background-color: #D8F3DC !important;
+  color: #1B4332 !important;
+  border: 1px solid #B7E4C7;
+}

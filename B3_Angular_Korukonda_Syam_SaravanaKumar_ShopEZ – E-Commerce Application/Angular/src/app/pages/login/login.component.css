@@ -1,0 +1,32 @@
+/*  Background */
+.auth-bg {
+  background: linear-gradient(135deg,#F4F1FF, #6f42c1);
+}
+
+/*  Card */
+.auth-card {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 16px;
+}
+
+/*  Icon circle */
+.auth-icon {
+  width: 60px;
+  height: 60px;
+  background: #6f42c1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*  Button */
+.btn-purple {
+  background: #6f42c1;
+  color: white;
+}
+
+.btn-purple:hover {
+  background: #5a32a3;
+}

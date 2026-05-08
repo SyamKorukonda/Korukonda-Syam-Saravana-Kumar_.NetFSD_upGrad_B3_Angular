@@ -1,0 +1,189 @@
+<div class="productsDetails-page">
+
+  <div class="container py-5 main-bg">
+
+    <!-- Back -->
+    <a routerLink="/products" class="btn btn-outline-purple mb-4">
+      ← Back to Products
+    </a>
+
+    <!-- Loading -->
+    <div *ngIf="loading" class="text-center py-5">
+      <div class="spinner-border text-purple"></div>
+    </div>
+
+    <!-- Content -->
+    <div *ngIf="product && !loading">
+
+      <div class="row g-4">
+
+        <!-- IMAGE -->
+        <div class="col-md-5">
+
+          <div class="card-box text-center">
+
+            <img
+              [src]="product.imageUrl || 'assets/images/no-image.png'"
+              (error)="onImgErr($event)"
+              class="product-img"
+            >
+
+          </div>
+
+        </div>
+
+        <!-- INFO -->
+        <div class="col-md-7">
+
+          <div class="card-box">
+
+            <!-- Title -->
+            <h2 class="fw-bold mb-2">
+              {{ product.name }}
+            </h2>
+
+            <!-- Average Rating -->
+            <div class="d-flex align-items-center gap-2 mb-2">
+
+              <div class="stars small-stars">
+
+                <span *ngFor="let star of [1,2,3,4,5]"
+                      [class.active]="star <= avgRating">
+                  ★
+                </span>
+
+              </div>
+
+              <span class="fw-semibold">
+                {{ avgRating }}
+              </span>
+
+              <span class="text-muted small">
+                ({{ reviewCount }} reviews)
+              </span>
+
+            </div>
+
+            <!-- Description -->
+            <p class="text-muted">
+              {{ product.description }}
+            </p>
+
+            <!-- Price -->
+            <h3 class="text-success fw-bold mb-3">
+              ₹{{ product.price }}
+            </h3>
+
+            <!-- Stock -->
+            <div class="mb-3">
+
+              <span *ngIf="product.stock > 0"
+                    class="badge bg-success">
+
+                In Stock ({{ product.stock }})
+
+              </span>
+
+              <span *ngIf="product.stock === 0"
+                    class="badge bg-danger">
+
+                Out of Stock
+
+              </span>
+
+            </div>
+
+            <!-- Quantity -->
+            <div *ngIf="isLoggedIn && product.stock > 0"
+                 class="mb-3">
+
+              <span class="me-2 fw-semibold">
+                Qty:
+              </span>
+
+              <button
+                class="btn btn-outline-secondary btn-sm"
+                (click)="decreaseQty()"
+                [disabled]="qty <= 1">
+
+                -
+
+              </button>
+
+              <span class="mx-2">
+                {{ qty }}
+              </span>
+
+              <button
+                class="btn btn-outline-secondary btn-sm"
+                (click)="increaseQty()"
+                [disabled]="qty >= product.stock">
+
+                +
+
+              </button>
+
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div *ngIf="isLoggedIn && product.stock > 0"
+                 class="d-flex gap-3 mb-4">
+
+              <button
+                class="btn btn-purple"
+                (click)="addToCart()"
+                [disabled]="adding">
+
+                {{ adding ? 'Adding...' : 'Add to Cart' }}
+
+              </button>
+
+              <button
+                class="btn btn-success"
+                (click)="buyNow()"
+                [disabled]="buying">
+
+                {{ buying ? 'Processing...' : 'Place Order' }}
+
+              </button>
+
+            </div>
+
+            <!-- Login -->
+            <div *ngIf="!isLoggedIn">
+
+              <a routerLink="/login"
+                 class="btn btn-outline-primary">
+
+                Login to Purchase
+
+              </a>
+
+            </div>
+
+            <!-- Messages -->
+            <div class="text-success mb-2"
+                 *ngIf="toast">
+
+              {{ toast }}
+
+            </div>
+
+            <div class="text-danger mb-2"
+                 *ngIf="error">
+
+              {{ error }}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

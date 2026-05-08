@@ -1,0 +1,61 @@
+<div class="admin-page">
+
+  <div class="container py-4">
+
+    <h2 class="fw-bold mb-4 text-white">Admin Dashboard</h2>
+
+    <!-- Loading -->
+    <div class="text-center py-4" *ngIf="loading">
+      <div class="spinner-border text-light"></div>
+    </div>
+
+    <ng-container *ngIf="!loading">
+
+      <!-- STATS -->
+      <div class="row g-4 mb-4">
+
+        <div class="col-md-4">
+          <div class="stat-card stat-products">
+            <p>Total Products</p>
+            <h2>{{ productCount }}</h2>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="stat-card stat-orders">
+            <p>Total Orders</p>
+            <h2>{{ orderCount }}</h2>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="stat-card stat-users">
+            <p>Total Users</p>
+            <h2>{{ userCount }}</h2>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- QUICK ACTIONS -->
+      <div class="row g-4">
+
+        <div class="col-md-3" *ngFor="let l of links">
+
+          <a [routerLink]="l.route"
+             class="action-card text-center">
+
+            <i class="bi fs-1 mb-2" [class]="l.icon"></i>
+            <p class="mb-0">{{ l.label }}</p>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </ng-container>
+
+  </div>
+
+</div>

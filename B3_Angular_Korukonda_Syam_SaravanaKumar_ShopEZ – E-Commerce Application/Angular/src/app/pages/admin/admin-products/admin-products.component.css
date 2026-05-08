@@ -1,0 +1,69 @@
+/* PAGE BG */
+.admin-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg,#F4F1FF, #6f42c1);
+}
+
+/* FORM */
+.form-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* PRODUCT CARD */
+.product-card {
+  background: #FBE8CE;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.img-wrap {
+  height: 160px;
+  background: #EDE9E6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-wrap img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* BUTTONS */
+.btn-purple {
+  background: #6f42c1;
+  color: white;
+  border: none;
+}
+
+.btn-purple:hover {
+  background: #5a32a3;
+}
+
+.btn-edit {
+  background: #007bff;
+  color: white;
+}
+
+.btn-edit:hover {
+  background: #0056b3;
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #b52a37;
+}

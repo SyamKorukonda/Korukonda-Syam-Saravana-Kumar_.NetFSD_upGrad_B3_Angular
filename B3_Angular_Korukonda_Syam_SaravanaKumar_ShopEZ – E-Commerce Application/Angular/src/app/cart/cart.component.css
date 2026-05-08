@@ -1,0 +1,249 @@
+
+.cart-page-wrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Keeps the top corners rounded with the header */
+  border: 1px solid #e9ecef;
+}
+
+.cart-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F4F1FF, #E6E9FF);
+  padding: 20px;
+}
+
+/*  Dark mode  */
+:host-context(body.dark-mode) .cart-page-wrapper {
+  background: #1e1e2e;
+  border-color: #3a3a5e;
+}
+:host-context(body.dark-mode) .cart-item-card,
+:host-context(body.dark-mode) .bg-light {
+  background: #2a2a3e !important;
+  border-color: #3a3a5e !important;
+}
+
+/*  Header  */
+.cart-header {
+  background: #6f42c1;
+  color: #ffffff;
+  padding: 20px 24px;
+}
+
+/*  Body  */
+.cart-body {
+  padding: 24px;
+}
+
+/*  Item Card  */
+.cart-item-card {
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  background: #fcfcfc;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cart-item-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/*  Item Image  */
+.cart-item-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+/*  Quantity Controls  */
+.qty-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.qty-num {
+  font-weight: 700;
+  font-size: 1.1rem;
+  min-width: 24px;
+  text-align: center;
+}
+.btn-qty {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  background: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #495057;
+  transition: all 0.2s;
+}
+.btn-qty:hover:not(:disabled) {
+  background: #6f42c1;
+  color: #ffffff;
+  border-color: #6f42c1;
+}
+.btn-qty:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/*  Buttons  */
+.btn-purple {
+  background: #6f42c1;
+  color: #ffffff;
+  border: none;
+  transition: background 0.2s;
+}
+.btn-purple:hover {
+  background: #5a32a3;
+  color: #ffffff;
+}
+.btn-remove {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+.btn-remove:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/*  Empty Cart  */
+.empty-cart {
+  text-align: center;
+
+}/* 
+   ShopEZ Full Page Cart CSS
+ */
+
+.cart-page-wrapper {
+  background: linear-gradient(135deg,#F4F1FF, #6f42c1);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Keeps the top corners rounded with the header */
+  border: 1px solid #e9ecef;
+}
+
+/*  Dark mode  */
+:host-context(body.dark-mode) .cart-page-wrapper {
+  background: #1e1e2e;
+  border-color: #3a3a5e;
+}
+:host-context(body.dark-mode) .cart-item-card,
+:host-context(body.dark-mode) .bg-light {
+  background: #2a2a3e !important;
+  border-color: #3a3a5e !important;
+}
+
+/*  Header  */
+.cart-header {
+  background: #6f42c1;
+  color: #ffffff;
+  padding: 20px 24px;
+}
+
+/*  Body  */
+.cart-body {
+  padding: 24px;
+}
+
+/*  Item Card  */
+.cart-item-card {
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  background: #E8E2D8;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cart-item-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/*  Item Image  */
+.cart-item-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #161E54;
+}
+
+/*  Quantity Controls  */
+.qty-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.qty-num {
+  font-weight: 700;
+  font-size: 1.1rem;
+  min-width: 24px;
+  text-align: center;
+}
+.btn-qty {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  background: #F9DFDF;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #495057;
+  transition: all 0.2s;
+}
+.btn-qty:hover:not(:disabled) {
+  background: #6f42c1;
+  color: #ffffff;
+  border-color: #6f42c1;
+}
+.btn-qty:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/*  Buttons  */
+.btn-purple {
+  background: #6f42c1;
+  color: #ffffff;
+  border: none;
+  transition: background 0.2s;
+}
+.btn-purple:hover {
+  background: #5a32a3;
+  color: #ffffff;
+}
+.btn-remove {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+.btn-remove:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/*  Empty Cart  */
+.empty-cart {
+  text-align: center;
+}

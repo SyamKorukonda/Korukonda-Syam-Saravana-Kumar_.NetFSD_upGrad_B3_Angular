@@ -1,0 +1,72 @@
+/* FULL PAGE BACKGROUND */
+.admin-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg,#F4F1FF, #6f42c1);
+}
+
+/* ===== STATS CARDS ===== */
+.stat-card {
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* COLORS */
+.stat-products {
+  background: linear-gradient(135deg, #ff7a18, #ffb347);
+}
+
+.stat-orders {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.stat-users {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+/* ===== ACTION CARDS ===== */
+.action-card {
+  display: block;
+  border-radius: 15px;
+  padding: 25px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+/* DEFAULT COLOR (fallback) */
+.action-card {
+  background: linear-gradient(135deg, #6f42c1, #5a32a3);
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  color: white;
+}
+
+/* OPTIONAL: different colors using nth-child */
+.row .col-md-3:nth-child(1) .action-card {
+  background: linear-gradient(135deg, #ff7a18, #ffb347);
+}
+
+.row .col-md-3:nth-child(2) .action-card {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+}
+
+.row .col-md-3:nth-child(3) .action-card {
+  background: linear-gradient(135deg, #28a745, #43e97b);
+}
+
+.row .col-md-3:nth-child(4) .action-card {
+  background: linear-gradient(135deg, #6f42c1, #9d50bb);
+}

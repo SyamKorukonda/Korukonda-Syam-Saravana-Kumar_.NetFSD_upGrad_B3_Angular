@@ -1,0 +1,54 @@
+/* PAGE BACKGROUND */
+.admin-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg,#F4F1FF, #6f42c1);
+}
+
+/* SEARCH CARD */
+.search-card {
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* TABLE CARD */
+.table-card {
+  background: #FFE4EF;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* TABLE */
+.table th {
+  font-weight: 600;
+  color: #444;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+/* FORCE COLOR */
+.table th,
+.table td {
+  background-color: #FFE4EF !important;
+}
+
+/* HEADER */
+.table thead th {
+  background-color: #ffd1e6 !important;
+}
+
+/* HOVER */
+.table tbody tr:hover td {
+  background-color: #fdd3e3 !important;
+}
+
+/* BADGE */
+.badge {
+  border-radius: 10px;
+  font-size: 12px;
+}

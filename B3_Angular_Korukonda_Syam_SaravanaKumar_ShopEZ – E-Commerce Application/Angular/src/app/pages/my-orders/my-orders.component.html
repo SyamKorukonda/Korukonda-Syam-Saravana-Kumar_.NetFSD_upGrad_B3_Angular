@@ -1,0 +1,88 @@
+<div class="container my-5">
+  <div class="orders-page-wrapper">
+    
+    <div class="orders-header">
+      <h3 class="mb-0 fw-bold">
+        <i class="bi bi-box-seam me-2"></i>My Orders
+      </h3>
+    </div>
+
+    <div class="orders-body p-4">
+      
+      <!-- Loading State -->
+      <div class="text-center py-5" *ngIf="loading">
+        <div class="spinner-border text-purple" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <ng-container *ngIf="!loading">
+
+        <!-- Empty State -->
+        <div *ngIf="(orders$ | async)?.length === 0" class="empty-orders py-5 text-center">
+          <i class="bi bi-receipt display-1 text-muted opacity-25"></i>
+          <h4 class="mt-4 mb-2 text-secondary">No orders yet</h4>
+          <p class="text-muted mb-4">You haven't placed any orders with ShopEZ.</p>
+          <button class="btn btn-purple px-4 py-2 fw-bold" routerLink="/products">
+            Start Shopping
+          </button>
+        </div>
+
+        <!-- Orders List -->
+        <div *ngFor="let order of orders$ | async" class="order-card mb-4">
+          
+          <!-- Order Header -->
+          <div class="order-card-header d-flex flex-wrap justify-content-between align-items-center">
+            <div>
+              <h6 class="mb-1 fw-bold">Order #{{ order.orderId }}</h6>
+              <small class="text-muted">Placed on {{ order.orderDate | date:'dd MMM yyyy, hh:mm a' }}</small>
+            </div>
+            <div class="text-end mt-2 mt-sm-0">
+              <span class="badge" [ngClass]="order.isCancelled ? 'bg-danger' : 'bg-success'">
+                {{ order.isCancelled ? 'Cancelled' : 'Active' }}
+              </span>
+              <div class="fw-bold mt-1 text-purple fs-5">₹{{ order.totalAmount }}</div>
+            </div>
+          </div>
+
+          <!-- Order Items -->
+          <div class="order-card-body">
+            <div *ngFor="let item of order.items; let last = last" 
+                class="order-item d-flex align-items-center py-3" 
+                [class.border-bottom]="!last">
+              
+              <!-- 1. The Image (Ensure imageUrl is lowercase to match your JSON) -->
+              <img [src]="item.imageUrl || 'assets/images/no-image.png'" 
+                  [alt]="item.productName" 
+                  class="item-img me-3">
+
+              <!-- 2. Product Details -->
+              <div class="flex-grow-1">
+                <h6 class="mb-1 fw-semibold">{{ item.productName }}</h6>
+                <p class="mb-0 text-muted small">Qty: {{ item.quantity }} | ₹{{ item.price }} each</p>
+              </div>
+
+              <!-- 3. Subtotal -->
+              <div class="fw-bold text-end ms-3">
+                ₹{{ item.subtotal }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Footer (Action Buttons) -->
+          <div class="order-card-footer d-flex justify-content-end bg-light p-3" *ngIf="!order.isCancelled">
+            <button class="btn btn-outline-danger px-4" 
+                    (click)="cancel(order)" 
+                    [disabled]="cancellingId === order.orderId">
+              <i class="bi bi-x-circle me-1"></i>
+              <span *ngIf="cancellingId === order.orderId">Cancelling...</span>
+              <span *ngIf="cancellingId !== order.orderId">Cancel Order</span>
+            </button>
+          </div>
+
+        </div>
+
+      </ng-container>
+    </div>
+  </div>
+</div>

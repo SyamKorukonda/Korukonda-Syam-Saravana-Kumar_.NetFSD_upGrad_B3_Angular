@@ -1,0 +1,46 @@
+/* HERO SECTION */
+.shopez-hero {
+  background: linear-gradient(135deg,#F4F1FF, #6f42c1);
+  min-height: 500px;
+  padding: 60px 0;
+}
+
+/*  Purple theme */
+.text-purple {
+  color: #6f42c1;
+}
+
+/*  Feature cards */
+.shopez-feature-card {
+  border-radius: 16px;
+  transition: 0.2s;
+}
+
+.shopez-feature-card:hover {
+  transform: translateY(-5px);
+}
+
+/*  Icon circle */
+.feature-icon-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(111,66,193,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6f42c1;
+  margin: auto;
+}
+
+/*  CTA section */
+.shopez-cta {
+  background: linear-gradient(135deg, #4a1fa8, #6f42c1);
+}
+
+.hero-img {
+  max-height: 420px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}

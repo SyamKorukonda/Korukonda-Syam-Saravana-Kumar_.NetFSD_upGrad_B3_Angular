@@ -1,0 +1,94 @@
+<div class="admin-page">
+
+  <div class="container py-4">
+
+    <h2 class="fw-bold mb-4 text-white">All Orders</h2>
+
+    <!-- Loading -->
+    <div class="text-center py-4" *ngIf="loading">
+      <div class="spinner-border text-light"></div>
+    </div>
+
+    <div *ngIf="!loading">
+
+      <div class="table-card">
+
+        <table class="table align-middle">
+
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>User</th>
+              <th>Date</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <!-- Orders -->
+            <tr *ngFor="let order of orders$ | async">
+
+              <td>#{{ order.orderId }}</td>
+
+              <td>User #{{ order.userId }}</td>
+
+              <td>{{ order.orderDate | date:'dd MMM yyyy' }}</td>
+
+              <td>
+                <div *ngFor="let item of order.items">
+                  {{ item.productName }} × {{ item.quantity }}
+                </div>
+              </td>
+
+              <td class="fw-bold text-success">
+                ₹{{ order.totalAmount }}
+              </td>
+
+              <!-- STATUS -->
+              <td>
+                <span 
+                  class="badge px-3 py-2"
+                  [ngClass]="order.isCancelled ? 'bg-danger' : 'bg-success'">
+
+                  {{ order.isCancelled ? 'Cancelled' : 'Active' }}
+
+                </span>
+              </td>
+
+              <!-- ACTION -->
+              <td>
+                <button
+                  class="btn btn-sm btn-danger"
+                  *ngIf="!order.isCancelled"
+                  (click)="cancel(order)"
+                  [disabled]="cancellingId === order.orderId">
+
+                  {{ cancellingId === order.orderId ? 'Cancelling...' : 'Cancel' }}
+
+                </button>
+              </td>
+
+            </tr>
+
+            <!-- EMPTY -->
+            <tr *ngIf="(orders$ | async)?.length === 0">
+              <td colspan="7" class="text-center text-muted py-4">
+                No orders found
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

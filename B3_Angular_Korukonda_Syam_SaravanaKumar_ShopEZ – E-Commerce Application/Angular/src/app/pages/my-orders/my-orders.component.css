@@ -1,0 +1,103 @@
+/* 
+  ShopEZ - Final Neat UI (Warm Boutique Style)
+  Background: #FCB7C7 | Cards: #FEFDDF | Image Boxes: #F3E3D0
+*/
+
+/* 1. MAIN PAGE WRAPPER */
+.main-bg, .container.my-5 {
+    background: linear-gradient(135deg,#F4F1FF, #6f42c1) !important;
+  min-height: 100vh;
+  padding: 40px 20px;
+  border-radius: 20px;
+}
+
+/* 2. THE ORDER/PRODUCT CARDS (Cream) */
+.order-card, .shopez-product-card, .card-box {
+  background-color: #FFE4EF !important;
+  border: none !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+/* 3. PRODUCT GRID IMAGES (Large) */
+.img-wrapper {
+  height: 220px;
+  background-color: #ACBAC4 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-img {
+  max-height: 90%;
+  max-width: 90%;
+  object-fit: contain;
+  mix-blend-mode: multiply; /* Blends product white backgrounds into almond */
+}
+
+/* 4. MY ORDERS LIST IMAGES (Fixed Small Size) */
+.item-img {
+  width: 80px !important;
+  height: 80px !important;
+  background-color: #BFC9D1 !important;
+  border-radius: 12px;
+  object-fit: contain;
+  padding: 5px;
+  flex-shrink: 0; /* Keeps image from squishing */
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 5. TEXT & TYPOGRAPHY */
+h2, h3, h6, .fw-bold, .fw-semibold {
+  color: #4A4A4A !important; /* Professional Dark Grey */
+}
+
+.text-purple {
+  color: #6f42c1 !important;
+}
+
+.text-muted {
+  color: #888 !important;
+}
+
+/* 6. BUTTONS (Orange Accent) */
+.btn-purple {
+  background: linear-gradient(45deg, #ff7a18, #ff512f) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 10px 20px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(255, 122, 24, 0.2);
+}
+
+.btn-purple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 122, 24, 0.3);
+}
+
+/* 7. ORDER SPECIFIC STYLES */
+.order-card-header {
+  background: rgba(0,0,0,0.02);
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.order-item {
+  padding: 15px 20px;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+}
+
+/* 8. PRICE TAGS */
+.text-success {
+  color: #2D6A4F !important; /* Deep Green for Prices */
+  font-weight: 700;
+}

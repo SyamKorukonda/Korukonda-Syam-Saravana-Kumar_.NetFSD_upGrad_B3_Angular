@@ -1,0 +1,107 @@
+
+<div class="cart-page">
+
+
+<div class="container my-5">
+  <div class="cart-page-wrapper">
+    
+    <!-- HEADER -->
+    <div class="cart-header">
+      <h4 class="mb-0">
+        <i class="bi bi-cart3 me-2"></i>My Shopping Cart
+        <span class="badge bg-warning text-dark ms-2 fs-6">
+          {{ cartCount$ | async }}
+        </span>
+      </h4>
+    </div>
+
+    <!-- BODY -->
+    <div class="cart-body">
+      
+      <!-- Async items -->
+      <ng-container *ngIf="cartItems$ | async as items">
+
+        <!-- Has items -->
+        <ng-container *ngIf="items && items.length > 0; else emptyCart">
+          
+          <!-- Item cards -->
+          <div class="cart-item-card" *ngFor="let item of items">
+            <div class="d-flex gap-4 align-items-center flex-wrap flex-md-nowrap">
+              
+              <!-- Image -->
+              <img 
+                [src]="item.imageUrl || 'assets/images/no-image.png'" 
+                [alt]="item.productName" 
+                class="cart-item-img"
+                (error)="onImgErr($event)">
+
+              <!-- Info -->
+              <div class="flex-grow-1">
+                <h5 class="fw-semibold mb-1">{{ item.productName }}</h5>
+                <p class="text-muted mb-3">₹{{ item.price }} per item</p>
+
+                <!-- Quantity Controls -->
+                <div class="qty-row">
+                  <button class="btn-qty" 
+                          (click)="decrease(item)" 
+                          [disabled]="item.quantity <= 1">−</button>
+                  
+                  <span class="qty-num">{{ item.quantity }}</span>
+                  
+                  <button class="btn-qty" 
+                          (click)="increase(item)" 
+                          [disabled]="item.quantity >= item.stock">+</button>
+                  
+                  <small class="text-muted ms-2">({{ item.stock }} available)</small>
+                </div>
+              </div>
+
+              <!-- Subtotal + Remove -->
+              <div class="item-right text-md-end mt-3 mt-md-0">
+                <div class="fw-bold text-success fs-5 mb-2">₹{{ item.subtotal }}</div>
+                <button class="btn-remove" (click)="remove(item.cartItemId)">
+                  <i class="bi bi-trash"></i> Remove
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- FOOTER -->
+          <div class="cart-footer mt-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 p-3 bg-light rounded border">
+              <span class="fw-bold fs-5">Grand Total</span>
+              <span class="fw-bold fs-4 text-success">₹{{ totalPrice$ | async }}</span>
+            </div>
+            
+            <div class="d-flex gap-3 justify-content-end">
+              <button class="btn btn-outline-danger px-4 py-2 fw-bold" (click)="clear()">
+                <i class="bi bi-trash me-2"></i>Clear Cart
+              </button>
+              <button class="btn btn-purple px-5 py-2 fw-bold" (click)="checkout()">
+                <i class="bi bi-bag-check me-2"></i>Proceed to Checkout
+              </button>
+            </div>
+          </div>
+
+        </ng-container>
+
+        <!-- Empty cart template -->
+        <ng-template #emptyCart>
+          <div class="empty-cart py-5">
+            <i class="bi bi-cart-x empty-icon display-1 text-muted opacity-25"></i>
+            <h3 class="mt-4 mb-2 text-secondary">Your cart is empty</h3>
+            <p class="text-muted mb-4">Looks like you haven't added any products yet.</p>
+            <button class="btn btn-purple px-4 py-2 fw-bold" routerLink="/products">
+              Continue Shopping
+            </button>
+          </div>
+        </ng-template>
+
+      </ng-container>
+
+    </div>
+  </div>
+</div>
+
+</div>
